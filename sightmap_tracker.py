@@ -713,7 +713,7 @@ def main() -> int:
             print(report, end="")
             append_log(log_path, log_header + report + "\n")
 
-            if webhook:
+            if webhook and not discord_only_on_diff:
                 try:
                     post_discord_chunks(webhook, report)
                 except Exception as e:
