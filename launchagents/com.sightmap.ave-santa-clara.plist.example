@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.sightmap.ave-santa-clara</string>
+	<key>WorkingDirectory</key>
+	<string>REPLACE_WITH_FULL_PATH_TO/sightmap-tracker</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>REPLACE_WITH_FULL_PATH_TO/sightmap-tracker/.venv/bin/python</string>
+		<string>REPLACE_WITH_FULL_PATH_TO/sightmap-tracker/sightmap_tracker.py</string>
+	</array>
+	<key>StartInterval</key>
+	<integer>7200</integer>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>DISCORD_WEBHOOK_URL</key>
+		<string>REPLACE_OR_REMOVE_IF_USING_DOTENV</string>
+	</dict>
+	<key>StandardOutPath</key>
+	<string>REPLACE_WITH_HOME/Library/Logs/sightmap-tracker.out.log</string>
+	<key>StandardErrorPath</key>
+	<string>REPLACE_WITH_HOME/Library/Logs/sightmap-tracker.err.log</string>
+</dict>
+</plist>
