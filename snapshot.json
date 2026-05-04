@@ -1,35 +1,48 @@
 {
-  "generated_at": "2026-05-04T04:49:17.419203+00:00",
+  "generated_at": "2026-05-04T04:56:52.914619+00:00",
   "snapshot_id": 2,
-  "snapshot_fetched_at": "2026-05-04T04:49:17.316172+00:00",
+  "snapshot_fetched_at": "2026-05-04T04:56:52.805938+00:00",
   "asset_name": "AVE Santa Clara",
   "unit_count": 7,
   "units": [
     {
-      "sightmap_unit_id": "9638355",
-      "floor_label": "Floor 3",
-      "unit_number": "311",
-      "display_unit_number": "APT 311",
-      "floor_plan": "A1",
-      "area": 585,
-      "price": 3493,
-      "display_price": "$3,493.00",
+      "sightmap_unit_id": "9638642",
+      "floor_label": "Floor 8",
+      "unit_number": "853",
+      "display_unit_number": "APT 853",
+      "floor_plan": "A4",
+      "area": 643,
+      "price": 3894,
+      "display_price": "$3,894.00",
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
-      "label": "APT 311 | A1 | Floor 3"
+      "label": "APT 853 | A4 | Floor 8"
     },
     {
-      "sightmap_unit_id": "9638387",
-      "floor_label": "Floor 4",
-      "unit_number": "418",
-      "display_unit_number": "APT 418",
-      "floor_plan": "A3",
-      "area": 594,
-      "price": 3703,
-      "display_price": "$3,703.00",
+      "sightmap_unit_id": "9638646",
+      "floor_label": "Floor 8",
+      "unit_number": "857",
+      "display_unit_number": "APT 857",
+      "floor_plan": "A4",
+      "area": 643,
+      "price": 3894,
+      "display_price": "$3,894.00",
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
-      "label": "APT 418 | A3 | Floor 4"
+      "label": "APT 857 | A4 | Floor 8"
+    },
+    {
+      "sightmap_unit_id": "9638589",
+      "floor_label": "Floor 7",
+      "unit_number": "757",
+      "display_unit_number": "APT 757",
+      "floor_plan": "A4",
+      "area": 643,
+      "price": 3814,
+      "display_price": "$3,814.00",
+      "available_on": "2026-08-21",
+      "display_available_on": "Available Aug 21st",
+      "label": "APT 757 | A4 | Floor 7"
     },
     {
       "sightmap_unit_id": "9638453",
@@ -58,43 +71,30 @@
       "label": "APT 573 | C3 | Floor 5"
     },
     {
-      "sightmap_unit_id": "9638589",
-      "floor_label": "Floor 7",
-      "unit_number": "757",
-      "display_unit_number": "APT 757",
-      "floor_plan": "A4",
-      "area": 643,
-      "price": 3814,
-      "display_price": "$3,814.00",
+      "sightmap_unit_id": "9638387",
+      "floor_label": "Floor 4",
+      "unit_number": "418",
+      "display_unit_number": "APT 418",
+      "floor_plan": "A3",
+      "area": 594,
+      "price": 3703,
+      "display_price": "$3,703.00",
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
-      "label": "APT 757 | A4 | Floor 7"
+      "label": "APT 418 | A3 | Floor 4"
     },
     {
-      "sightmap_unit_id": "9638642",
-      "floor_label": "Floor 8",
-      "unit_number": "853",
-      "display_unit_number": "APT 853",
-      "floor_plan": "A4",
-      "area": 643,
-      "price": 3894,
-      "display_price": "$3,894.00",
+      "sightmap_unit_id": "9638355",
+      "floor_label": "Floor 3",
+      "unit_number": "311",
+      "display_unit_number": "APT 311",
+      "floor_plan": "A1",
+      "area": 585,
+      "price": 3493,
+      "display_price": "$3,493.00",
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
-      "label": "APT 853 | A4 | Floor 8"
-    },
-    {
-      "sightmap_unit_id": "9638646",
-      "floor_label": "Floor 8",
-      "unit_number": "857",
-      "display_unit_number": "APT 857",
-      "floor_plan": "A4",
-      "area": 643,
-      "price": 3894,
-      "display_price": "$3,894.00",
-      "available_on": "2026-08-21",
-      "display_available_on": "Available Aug 21st",
-      "label": "APT 857 | A4 | Floor 8"
+      "label": "APT 311 | A1 | Floor 3"
     }
   ],
   "changes": {
@@ -110,9 +110,6 @@
       "price": 0,
       "available": 0
     },
-    "new": [],
-    "removed": [],
-    "price": [],
-    "available": []
+    "events": []
   }
 }
