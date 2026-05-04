@@ -356,6 +356,18 @@ tr:last-child td {
   padding-top: 0.06rem;
 }
 
+.timeline-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.timeline-date {
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
 .special-cell {
   font-size: 0.8rem;
   color: var(--muted);

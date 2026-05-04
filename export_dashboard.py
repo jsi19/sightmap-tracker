@@ -15,6 +15,24 @@ from pathlib import Path
 import sightmap_tracker as st
 
 
+def _snapshot_history(conn: sqlite3.Connection) -> list[dict[str, object]]:
+    rows = conn.execute(
+        "SELECT id, fetched_at, asset_name FROM snapshots ORDER BY id ASC"
+    ).fetchall()
+    return [
+        {
+            "id": int(row["id"]),
+            "fetched_at": str(row["fetched_at"]),
+            "asset_name": str(row["asset_name"]),
+        }
+        for row in rows
+    ]
+
+
+def _empty_counts() -> dict[str, int]:
+    return {"new": 0, "removed": 0, "price": 0, "available": 0, "special": 0}
+
+
 def _unit_dict(u: st.UnitRow) -> dict:
     return {
         "sightmap_unit_id": u.sightmap_unit_id,
@@ -34,16 +52,14 @@ def _unit_dict(u: st.UnitRow) -> dict:
 
 
 def build_payload(conn: sqlite3.Connection) -> dict:
-    history = st.get_last_two_snapshot_ids(conn)
+    history = _snapshot_history(conn)
     if not history:
         raise SystemExit("No snapshots in database — run sightmap_tracker.py first.")
 
-    curr_id, asset_name = history[0]
-    row = conn.execute(
-        "SELECT fetched_at FROM snapshots WHERE id = ?",
-        (curr_id,),
-    ).fetchone()
-    fetched_at = str(row["fetched_at"]) if row else ""
+    current_snapshot = history[-1]
+    curr_id = int(current_snapshot["id"])
+    asset_name = str(current_snapshot["asset_name"])
+    fetched_at = str(current_snapshot["fetched_at"])
 
     curr_units = st.load_snapshot_units(conn, curr_id)
     sorted_units = st.sort_units_by_floor_then_number(list(curr_units.values()))
@@ -53,29 +69,62 @@ def build_payload(conn: sqlite3.Connection) -> dict:
             "compare": None,
             "has_changes": False,
             "baseline": True,
-            "counts": {"new": 0, "removed": 0, "price": 0, "available": 0, "special": 0},
+            "counts": _empty_counts(),
             "events": [],
         }
     else:
-        prev_id, _ = history[1]
-        prev_units = st.load_snapshot_units(conn, prev_id)
-        d = st.diff_snapshots(prev_units, curr_units)
-        timeline = st.build_diff_events(d)
+        counts = _empty_counts()
+        event_groups: list[list[dict[str, object]]] = []
+
+        prev_snapshot = history[0]
+        prev_units = st.load_snapshot_units(conn, int(prev_snapshot["id"]))
+
+        for next_snapshot in history[1:]:
+            next_id = int(next_snapshot["id"])
+            next_units = st.load_snapshot_units(conn, next_id)
+            d = st.diff_snapshots(prev_units, next_units)
+
+            counts["new"] += len(d.new_units)
+            counts["removed"] += len(d.removed_units)
+            counts["price"] += len(d.price_changes)
+            counts["available"] += len(d.available_changes)
+            counts["special"] += len(d.specials_changes)
+
+            timeline = st.build_diff_events(d)
+            if timeline:
+                event_groups.append(
+                    [
+                        {
+                            "type": str(e["kind"]),
+                            "summary": str(e["summary"]),
+                            "from_snapshot_id": int(prev_snapshot["id"]),
+                            "to_snapshot_id": next_id,
+                            "from_snapshot_fetched_at": str(prev_snapshot["fetched_at"]),
+                            "to_snapshot_fetched_at": str(next_snapshot["fetched_at"]),
+                            "snapshot_fetched_at": str(next_snapshot["fetched_at"]),
+                        }
+                        for e in timeline
+                    ]
+                )
+
+            prev_snapshot = next_snapshot
+            prev_units = next_units
+
+        events = [
+            event
+            for group in reversed(event_groups)
+            for event in group
+        ]
         changes = {
-            "compare": {"from_snapshot_id": prev_id, "to_snapshot_id": curr_id},
-            "has_changes": d.any(),
-            "baseline": False,
-            "counts": {
-                "new": len(d.new_units),
-                "removed": len(d.removed_units),
-                "price": len(d.price_changes),
-                "available": len(d.available_changes),
-                "special": len(d.specials_changes),
+            "compare": {
+                "from_snapshot_id": int(history[0]["id"]),
+                "to_snapshot_id": curr_id,
             },
-            "events": [
-                {"type": str(e["kind"]), "summary": str(e["summary"])}
-                for e in timeline
-            ],
+            "has_changes": bool(events),
+            "baseline": False,
+            "counts": counts,
+            "events": events,
+            "snapshot_count": len(history),
         }
 
     return {

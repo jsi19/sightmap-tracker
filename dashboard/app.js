@@ -105,7 +105,7 @@
     if (!c.has_changes) {
       const p = document.createElement("p");
       p.className = "empty-state";
-      p.textContent = "No changes since the last snapshot.";
+      p.textContent = "No changes found across saved snapshots.";
       container.appendChild(p);
       return;
     }
@@ -114,7 +114,7 @@
     const hint = document.createElement("p");
     hint.className = "timeline-hint";
     hint.textContent =
-      "Timeline: higher floors first, then unit number. Each line is one event.";
+      "Historical timeline across all saved snapshots, newest first. Within each snapshot, higher floors appear first, then unit number.";
     container.appendChild(hint);
 
     const ul = document.createElement("ul");
@@ -144,8 +144,16 @@
       span.className = "kind " + (kindClass[t] || "kind-default");
       span.textContent = kindLabel[t] || t;
       const text = document.createElement("span");
-      text.className = "timeline-text";
-      text.textContent = ev.summary || "";
+      text.className = "timeline-text timeline-copy";
+      if (ev.snapshot_fetched_at) {
+        const stamp = document.createElement("span");
+        stamp.className = "timeline-date";
+        stamp.textContent = fmtTs(ev.snapshot_fetched_at);
+        text.appendChild(stamp);
+      }
+      const summary = document.createElement("span");
+      summary.textContent = ev.summary || "";
+      text.appendChild(summary);
       li.appendChild(span);
       li.appendChild(text);
       ul.appendChild(li);
