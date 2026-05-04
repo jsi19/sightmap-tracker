@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-04T14:29:06.476085+00:00",
+  "generated_at": "2026-05-04T17:34:05.449431+00:00",
   "snapshot_id": 2,
-  "snapshot_fetched_at": "2026-05-04T14:29:06.144292+00:00",
+  "snapshot_fetched_at": "2026-05-04T17:34:05.151796+00:00",
   "asset_name": "AVE Santa Clara",
   "unit_count": 5,
   "units": [
@@ -98,12 +98,23 @@
     "events": [
       {
         "type": "REMOVED",
-        "summary": "APT 535 | E2 | Floor 5 \u2014 no longer listed ($3,405.00)"
+        "summary": "APT 535 | E2 | Floor 5 \u2014 no longer listed ($3,405.00)",
+        "from_snapshot_id": 1,
+        "to_snapshot_id": 2,
+        "from_snapshot_fetched_at": "2026-05-04T04:14:11.762870+00:00",
+        "to_snapshot_fetched_at": "2026-05-04T17:34:05.151796+00:00",
+        "snapshot_fetched_at": "2026-05-04T17:34:05.151796+00:00"
       },
       {
         "type": "REMOVED",
-        "summary": "APT 418 | A3 | Floor 4 \u2014 no longer listed ($3,703.00)"
+        "summary": "APT 418 | A3 | Floor 4 \u2014 no longer listed ($3,703.00)",
+        "from_snapshot_id": 1,
+        "to_snapshot_id": 2,
+        "from_snapshot_fetched_at": "2026-05-04T04:14:11.762870+00:00",
+        "to_snapshot_fetched_at": "2026-05-04T17:34:05.151796+00:00",
+        "snapshot_fetched_at": "2026-05-04T17:34:05.151796+00:00"
       }
-    ]
+    ],
+    "snapshot_count": 2
   }
 }
