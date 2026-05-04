@@ -30,7 +30,6 @@ jobs:
           key: sightmap-state-v2-${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             sightmap-state-v2-${{ github.repository }}-
-            sightmap-state-v1-${{ github.repository }}
 
       - uses: actions/setup-python@v5
         with:
@@ -45,13 +44,7 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           DISCORD_ONLY_ON_CHANGES: "true"
-          RESTORED_STATE_KEY: ${{ steps.restore-state.outputs.cache-matched-key }}
-        run: |
-          if [[ "$RESTORED_STATE_KEY" == sightmap-state-v1-* ]]; then
-            echo "Restored legacy immutable tracker cache; suppressing Discord for this migration run."
-            unset DISCORD_WEBHOOK_URL
-          fi
-          python sightmap_tracker.py
+        run: python sightmap_tracker.py
 
       - name: Build dashboard for GitHub Pages
         run: python export_dashboard.py --output-dir _site
