@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-04T04:56:52.914619+00:00",
+  "generated_at": "2026-05-04T05:14:08.725512+00:00",
   "snapshot_id": 2,
-  "snapshot_fetched_at": "2026-05-04T04:56:52.805938+00:00",
+  "snapshot_fetched_at": "2026-05-04T05:14:08.613044+00:00",
   "asset_name": "AVE Santa Clara",
   "unit_count": 7,
   "units": [
@@ -16,6 +16,7 @@
       "display_price": "$3,894.00",
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
+      "specials_description": null,
       "label": "APT 853 | A4 | Floor 8"
     },
     {
@@ -29,6 +30,7 @@
       "display_price": "$3,894.00",
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
+      "specials_description": null,
       "label": "APT 857 | A4 | Floor 8"
     },
     {
@@ -42,6 +44,7 @@
       "display_price": "$3,814.00",
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
+      "specials_description": null,
       "label": "APT 757 | A4 | Floor 7"
     },
     {
@@ -55,6 +58,7 @@
       "display_price": "$3,405.00",
       "available_on": "2026-07-07",
       "display_available_on": "Available Jul 7th",
+      "specials_description": null,
       "label": "APT 535 | E2 | Floor 5"
     },
     {
@@ -68,6 +72,7 @@
       "display_price": "$6,779.00",
       "available_on": "2026-05-16",
       "display_available_on": "Available May 16th",
+      "specials_description": null,
       "label": "APT 573 | C3 | Floor 5"
     },
     {
@@ -81,6 +86,7 @@
       "display_price": "$3,703.00",
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
+      "specials_description": null,
       "label": "APT 418 | A3 | Floor 4"
     },
     {
@@ -94,6 +100,7 @@
       "display_price": "$3,493.00",
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
+      "specials_description": null,
       "label": "APT 311 | A1 | Floor 3"
     }
   ],
@@ -108,7 +115,8 @@
       "new": 0,
       "removed": 0,
       "price": 0,
-      "available": 0
+      "available": 0,
+      "special": 0
     },
     "events": []
   }

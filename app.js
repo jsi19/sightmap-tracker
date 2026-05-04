@@ -45,7 +45,7 @@
 
       const table = document.createElement("table");
       table.innerHTML =
-        "<thead><tr><th>Unit</th><th>Plan</th><th>Sq ft</th><th>Rent</th><th>Available</th></tr></thead>";
+        "<thead><tr><th>Unit</th><th>Plan</th><th>Sq ft</th><th>Rent</th><th>Available</th><th>Special</th></tr></thead>";
       const tb = document.createElement("tbody");
       for (const u of list) {
         const tr = document.createElement("tr");
@@ -53,6 +53,9 @@
         const sq = u.area != null ? u.area.toLocaleString() : "—";
         const rent = u.display_price || (u.price != null ? "$" + u.price.toLocaleString() : "—");
         const av = u.display_available_on || u.available_on || "—";
+        const spRaw = (u.specials_description || "").trim().replace(/\s+/g, " ");
+        const sp =
+          spRaw.length > 56 ? spRaw.slice(0, 55) + "…" : spRaw || "—";
         tr.innerHTML =
           "<td>" +
           escapeHtml(apt) +
@@ -64,6 +67,8 @@
           escapeHtml(rent) +
           "</td><td>" +
           escapeHtml(av) +
+          '</td><td class="special-cell">' +
+          escapeHtml(sp) +
           "</td>";
         tb.appendChild(tr);
       }
@@ -117,6 +122,7 @@
       NEW: "kind-new",
       PRICE: "kind-price",
       AVAILABLE: "kind-available",
+      SPECIAL: "kind-special",
     };
 
     const kindLabel = {
@@ -124,6 +130,7 @@
       NEW: "New",
       PRICE: "Price",
       AVAILABLE: "Move-in",
+      SPECIAL: "Special",
     };
 
     for (const ev of events) {
@@ -182,7 +189,9 @@
         (n.price || 0) +
         " price · " +
         (n.available || 0) +
-        " dates";
+        " dates · " +
+        (n.special || 0) +
+        " special";
       pill.classList.add("live");
     } else {
       pill.textContent = "No changes";

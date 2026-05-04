@@ -270,6 +270,12 @@ tr:last-child td {
   background: rgba(158, 197, 232, 0.07);
 }
 
+.kind-special {
+  color: #d4b5ff;
+  border-color: rgba(212, 181, 255, 0.35);
+  background: rgba(212, 181, 255, 0.07);
+}
+
 .kind-default {
   color: var(--muted);
 }
@@ -279,6 +285,13 @@ tr:last-child td {
   color: var(--text);
   line-height: 1.45;
   padding-top: 0.06rem;
+}
+
+.special-cell {
+  font-size: 0.8rem;
+  color: var(--muted);
+  max-width: 14rem;
+  line-height: 1.35;
 }
 
 .empty-state {
@@ -320,6 +333,11 @@ tr:last-child td {
 @media (max-width: 640px) {
   th:nth-child(4),
   td:nth-child(4) {
+    display: none;
+  }
+
+  th:nth-child(6),
+  td:nth-child(6) {
     display: none;
   }
 }
