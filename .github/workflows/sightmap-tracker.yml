@@ -36,4 +36,5 @@ jobs:
       - name: Run tracker
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_ONLY_ON_CHANGES: "true"
         run: python sightmap_tracker.py

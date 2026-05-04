@@ -46,7 +46,7 @@ Artifacts (default paths, same folder as the script):
 | `DB_PATH` | `sightmap.db` | SQLite file |
 | `LOG_PATH` | `changes.log` | Append-only log |
 
-**Each run** prints and logs: **(1)** header, **(2)** all listed units sorted by **floor then unit #** (plan, sq ft, rent, availability text), **(3)** a **Changes** section (baseline message, or diff vs previous snapshot). With `DISCORD_WEBHOOK_URL` set, the same report is sent to Discord (split into multiple messages if it exceeds Discord’s length limit). Set `DISCORD_ONLY_ON_CHANGES=true` if you only want Discord when something actually changed.
+**Each run** prints and logs: **(1)** header, **(2)** all listed units sorted by **floor then unit #** (plan, sq ft, rent, availability text), **(3)** a **Changes** section (baseline message, or diff vs previous snapshot). With `DISCORD_WEBHOOK_URL` set, the same report is sent to Discord (split into multiple messages if it exceeds Discord’s length limit). The **GitHub Actions** workflow sets `DISCORD_ONLY_ON_CHANGES=true` so Discord is notified **only when the diff is non-empty**; the full report is still in each **workflow run log**. For local runs, set `DISCORD_ONLY_ON_CHANGES=true` in `.env` for the same behavior.
 
 ## GitHub Actions (every 2 hours, UTC)
 
