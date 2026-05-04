@@ -16,6 +16,12 @@
     }
   }
 
+  function floorNum(label) {
+    const m = String(label || "").match(/(\d+)/);
+    return m ? parseInt(m[1], 10) : -1;
+  }
+
+  /** High floor first (e.g. Floor 8 before Floor 3). */
   function groupByFloor(units) {
     const m = new Map();
     for (const u of units) {
@@ -23,7 +29,7 @@
       if (!m.has(f)) m.set(f, []);
       m.get(f).push(u);
     }
-    return Array.from(m.entries());
+    return Array.from(m.entries()).sort((a, b) => floorNum(b[0]) - floorNum(a[0]));
   }
 
   function renderFloors(container, units) {
@@ -96,30 +102,45 @@
       return;
     }
 
-    const sections = [
-      ["New on market", c.new, (u) => u.label + " · " + (u.display_price || "") + " · " + (u.display_available_on || u.available_on || "")],
-      ["No longer listed", c.removed, (u) => u.label + " · " + (u.display_price || "")],
-      ["Price changes", c.price, (x) => x.label + " · " + x.was_display_price + " → " + x.now_display_price],
-      ["Move-in / availability", c.available, (x) => x.label + " · " + x.was + " → " + x.now],
-    ];
+    const events = Array.isArray(c.events) ? c.events : [];
+    const hint = document.createElement("p");
+    hint.className = "timeline-hint";
+    hint.textContent =
+      "Timeline: higher floors first, then unit number. Each line is one event.";
+    container.appendChild(hint);
 
-    for (const [title, arr, line] of sections) {
-      if (!arr || !arr.length) continue;
-      const sec = document.createElement("div");
-      sec.className = "chg-section";
-      const h = document.createElement("h3");
-      h.textContent = title;
-      sec.appendChild(h);
-      const ul = document.createElement("ul");
-      ul.className = "chg-list";
-      for (const item of arr) {
-        const li = document.createElement("li");
-        li.textContent = line(item);
-        ul.appendChild(li);
-      }
-      sec.appendChild(ul);
-      container.appendChild(sec);
+    const ul = document.createElement("ul");
+    ul.className = "timeline";
+
+    const kindClass = {
+      REMOVED: "kind-removed",
+      NEW: "kind-new",
+      PRICE: "kind-price",
+      AVAILABLE: "kind-available",
+    };
+
+    const kindLabel = {
+      REMOVED: "Delisted",
+      NEW: "New",
+      PRICE: "Price",
+      AVAILABLE: "Move-in",
+    };
+
+    for (const ev of events) {
+      const li = document.createElement("li");
+      li.className = "timeline-item";
+      const t = ev.type || "";
+      const span = document.createElement("span");
+      span.className = "kind " + (kindClass[t] || "kind-default");
+      span.textContent = kindLabel[t] || t;
+      const text = document.createElement("span");
+      text.className = "timeline-text";
+      text.textContent = ev.summary || "";
+      li.appendChild(span);
+      li.appendChild(text);
+      ul.appendChild(li);
     }
+    container.appendChild(ul);
   }
 
   async function load() {

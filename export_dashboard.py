@@ -52,15 +52,13 @@ def build_payload(conn: sqlite3.Connection) -> dict:
             "has_changes": False,
             "baseline": True,
             "counts": {"new": 0, "removed": 0, "price": 0, "available": 0},
-            "new": [],
-            "removed": [],
-            "price": [],
-            "available": [],
+            "events": [],
         }
     else:
         prev_id, _ = history[1]
         prev_units = st.load_snapshot_units(conn, prev_id)
         d = st.diff_snapshots(prev_units, curr_units)
+        timeline = st.build_diff_events(d)
         changes = {
             "compare": {"from_snapshot_id": prev_id, "to_snapshot_id": curr_id},
             "has_changes": d.any(),
@@ -71,25 +69,9 @@ def build_payload(conn: sqlite3.Connection) -> dict:
                 "price": len(d.price_changes),
                 "available": len(d.available_changes),
             },
-            "new": [_unit_dict(u) for u in d.new_units],
-            "removed": [_unit_dict(u) for u in d.removed_units],
-            "price": [
-                {
-                    "label": new.label(),
-                    "was_display_price": old.display_price
-                    or (f"${old.price}" if old.price is not None else None),
-                    "now_display_price": new.display_price
-                    or (f"${new.price}" if new.price is not None else None),
-                }
-                for old, new in d.price_changes
-            ],
-            "available": [
-                {
-                    "label": new.label(),
-                    "was": old.display_available_on or old.available_on,
-                    "now": new.display_available_on or new.available_on,
-                }
-                for old, new in d.available_changes
+            "events": [
+                {"type": str(e["kind"]), "summary": str(e["summary"])}
+                for e in timeline
             ],
         }
 

@@ -386,21 +386,107 @@ def diff_snapshots(prev: dict[str, UnitRow], curr: dict[str, UnitRow]) -> DiffRe
 # -----------------------------------------------------------------------------
 
 
+def floor_rank_label(label: str) -> int:
+    m = re.search(r"(\d+)", label or "")
+    return int(m.group(1)) if m else 9999
+
+
+def unit_rank_tuple(num: str) -> tuple[int, str]:
+    s = (num or "").strip()
+    return (int(s), s) if s.isdigit() else (99999, s)
+
+
 def sort_units_by_floor_then_number(units: list[UnitRow]) -> list[UnitRow]:
-    def floor_rank(label: str) -> int:
-        m = re.search(r"(\d+)", label or "")
-        return int(m.group(1)) if m else 9999
+    """Higher floor first; within a floor, lower unit # first."""
+    return sorted(
+        units,
+        key=lambda u: (
+            -floor_rank_label(u.floor_label),
+            unit_rank_tuple(u.unit_number),
+        ),
+    )
 
-    def unit_rank(num: str) -> tuple[int, str]:
-        s = (num or "").strip()
-        return (int(s), s) if s.isdigit() else (99999, s)
 
-    return sorted(units, key=lambda u: (floor_rank(u.floor_label), unit_rank(u.unit_number)))
+_DIFF_KIND_ORDER = {"REMOVED": 0, "NEW": 1, "PRICE": 2, "AVAILABLE": 3}
+
+
+def build_diff_events(diff: DiffResult) -> list[dict[str, object]]:
+    """Single timeline: high floor first, then unit #, then event kind."""
+    rows: list[dict[str, object]] = []
+
+    for u in diff.removed_units:
+        fr = floor_rank_label(u.floor_label)
+        ur, uk = unit_rank_tuple(u.unit_number)
+        rent = u.display_price or (f"${u.price}" if u.price is not None else "—")
+        rows.append(
+            {
+                "kind": "REMOVED",
+                "summary": f"{u.label()} — no longer listed ({rent})",
+                "floor_rank": fr,
+                "unit_sort": ur,
+                "unit_key": uk,
+            }
+        )
+
+    for u in diff.new_units:
+        fr = floor_rank_label(u.floor_label)
+        ur, uk = unit_rank_tuple(u.unit_number)
+        rent = u.display_price or (f"${u.price}" if u.price is not None else "—")
+        move = u.display_available_on or u.available_on or "—"
+        rows.append(
+            {
+                "kind": "NEW",
+                "summary": f"{u.label()} — newly listed ({rent}; {move})",
+                "floor_rank": fr,
+                "unit_sort": ur,
+                "unit_key": uk,
+            }
+        )
+
+    for old, new in diff.price_changes:
+        fr = floor_rank_label(new.floor_label)
+        ur, uk = unit_rank_tuple(new.unit_number)
+        op = old.display_price or (f"${old.price}" if old.price is not None else "?")
+        np = new.display_price or (f"${new.price}" if new.price is not None else "?")
+        rows.append(
+            {
+                "kind": "PRICE",
+                "summary": f"{new.label()} — rent {op} → {np}",
+                "floor_rank": fr,
+                "unit_sort": ur,
+                "unit_key": uk,
+            }
+        )
+
+    for old, new in diff.available_changes:
+        fr = floor_rank_label(new.floor_label)
+        ur, uk = unit_rank_tuple(new.unit_number)
+        oa = old.display_available_on or old.available_on or "n/a"
+        na = new.display_available_on or new.available_on or "n/a"
+        rows.append(
+            {
+                "kind": "AVAILABLE",
+                "summary": f"{new.label()} — move-in / availability {oa} → {na}",
+                "floor_rank": fr,
+                "unit_sort": ur,
+                "unit_key": uk,
+            }
+        )
+
+    rows.sort(
+        key=lambda e: (
+            -int(e["floor_rank"]),
+            int(e["unit_sort"]),
+            str(e["unit_key"]),
+            _DIFF_KIND_ORDER[str(e["kind"])],
+        )
+    )
+    return rows
 
 
 def format_inventory_table(units_sorted: list[UnitRow]) -> str:
     lines = [
-        "Current availability (floor → unit #)",
+        "Current availability (high floor → low, then unit #)",
         "-" * 86,
         f"{'Floor':<14} {'Unit':<16} {'Plan':<6} {'Sq ft':>8} {'Rent':>14}  Available",
         "-" * 86,
@@ -421,49 +507,16 @@ def format_inventory_table(units_sorted: list[UnitRow]) -> str:
 def format_diff_section(prev_id: int, curr_id: int, diff: DiffResult) -> str:
     lines: list[str] = [
         f"Changes since last run (snapshot #{prev_id} → #{curr_id})",
+        "Order: high floor first, then unit #, then event type.",
         "",
     ]
     if not diff.any():
         lines.append("No changes detected.")
         return "\n".join(lines) + "\n"
 
-    if diff.new_units:
-        lines.append("New on market")
-        lines.append("-" * 40)
-        for u in diff.new_units:
-            lines.append(
-                f"  + {u.label()} | {u.display_price or u.price} | "
-                f"{u.display_available_on or u.available_on or 'n/a'}"
-            )
-        lines.append("")
-
-    if diff.removed_units:
-        lines.append("No longer listed")
-        lines.append("-" * 40)
-        for u in diff.removed_units:
-            lines.append(
-                f"  − {u.label()} | {u.display_price or u.price} | "
-                f"{u.display_available_on or u.available_on or 'n/a'}"
-            )
-        lines.append("")
-
-    if diff.price_changes:
-        lines.append("Price changes")
-        lines.append("-" * 40)
-        for old, new in diff.price_changes:
-            op = old.display_price or (f"${old.price}" if old.price is not None else "?")
-            np = new.display_price or (f"${new.price}" if new.price is not None else "?")
-            lines.append(f"  * {old.label()} | {op} → {np}")
-        lines.append("")
-
-    if diff.available_changes:
-        lines.append("Available / move-in date changes")
-        lines.append("-" * 40)
-        for old, new in diff.available_changes:
-            oa = old.display_available_on or old.available_on or "n/a"
-            na = new.display_available_on or new.available_on or "n/a"
-            lines.append(f"  * {old.label()} | {oa} → {na}")
-        lines.append("")
+    for e in build_diff_events(diff):
+        lines.append(f"  [{e['kind']}] {e['summary']}")
+    lines.append("")
 
     return "\n".join(lines).rstrip() + "\n"
 
