@@ -10,6 +10,8 @@ Human-facing availability page: [aveliving.com/check-availability/santa-clara](h
 - Units no longer listed  
 - Price changes  
 - `available_on` / move-in date changes  
+- **`specials_description`** (SightMap “special / concession” copy): added, removed, or edited on a still-listed unit — compared on every run even when the marketing site does not show it clearly  
+
 
 First successful run creates a **baseline** snapshot only (no Discord diff alert by default).
 

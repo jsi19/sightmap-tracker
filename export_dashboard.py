@@ -27,6 +27,7 @@ def _unit_dict(u: st.UnitRow) -> dict:
         "display_price": u.display_price,
         "available_on": u.available_on,
         "display_available_on": u.display_available_on,
+        "specials_description": u.specials_description,
         "label": u.label(),
     }
 
@@ -51,7 +52,7 @@ def build_payload(conn: sqlite3.Connection) -> dict:
             "compare": None,
             "has_changes": False,
             "baseline": True,
-            "counts": {"new": 0, "removed": 0, "price": 0, "available": 0},
+            "counts": {"new": 0, "removed": 0, "price": 0, "available": 0, "special": 0},
             "events": [],
         }
     else:
@@ -68,6 +69,7 @@ def build_payload(conn: sqlite3.Connection) -> dict:
                 "removed": len(d.removed_units),
                 "price": len(d.price_changes),
                 "available": len(d.available_changes),
+                "special": len(d.specials_changes),
             },
             "events": [
                 {"type": str(e["kind"]), "summary": str(e["summary"])}

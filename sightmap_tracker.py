@@ -47,6 +47,7 @@ class UnitRow:
     display_price: str
     display_available_on: str
     area: int | None = None
+    specials_description: str | None = None
 
     def label(self) -> str:
         return f"{self.display_unit_number or self.unit_number} | {self.floor_plan} | {self.floor_label}"
@@ -58,6 +59,7 @@ class DiffResult:
     removed_units: list[UnitRow]
     price_changes: list[tuple[UnitRow, UnitRow]]
     available_changes: list[tuple[UnitRow, UnitRow]]
+    specials_changes: list[tuple[UnitRow, UnitRow]]
 
     def any(self) -> bool:
         return bool(
@@ -65,6 +67,7 @@ class DiffResult:
             or self.removed_units
             or self.price_changes
             or self.available_changes
+            or self.specials_changes
         )
 
 
@@ -140,6 +143,18 @@ def _norm_str(v: Any) -> str | None:
         return None
     s = str(v).strip()
     return s if s else None
+
+
+def _short_text(text: str | None, max_len: int = 160) -> str:
+    s = " ".join((text or "").split())
+    if len(s) <= max_len:
+        return s
+    return s[: max_len - 1] + "…"
+
+
+def _norm_special_text(s: str | None) -> str:
+    """Normalize specials_description for comparisons."""
+    return (s or "").strip()
 
 
 def parse_units(payload: dict[str, Any]) -> tuple[str, list[UnitRow]]:
@@ -218,6 +233,7 @@ def parse_units(payload: dict[str, Any]) -> tuple[str, list[UnitRow]]:
                 display_price=str(u.get("display_price") or ""),
                 display_available_on=str(u.get("display_available_on") or ""),
                 area=area_int,
+                specials_description=_norm_str(u.get("specials_description")),
             )
         )
 
@@ -256,6 +272,7 @@ def init_db(conn: sqlite3.Connection) -> None:
             display_price TEXT NOT NULL,
             display_available_on TEXT NOT NULL,
             area INTEGER,
+            specials_description TEXT,
             PRIMARY KEY (snapshot_id, sightmap_unit_id)
         );
         CREATE INDEX IF NOT EXISTS idx_snapshot_units_snapshot
@@ -271,6 +288,9 @@ def _migrate_schema(conn: sqlite3.Connection) -> None:
     if "area" not in cols:
         conn.execute("ALTER TABLE snapshot_units ADD COLUMN area INTEGER")
         conn.commit()
+    if "specials_description" not in cols:
+        conn.execute("ALTER TABLE snapshot_units ADD COLUMN specials_description TEXT")
+        conn.commit()
 
 
 def save_snapshot(conn: sqlite3.Connection, asset_name: str, units: list[UnitRow]) -> int:
@@ -285,8 +305,8 @@ def save_snapshot(conn: sqlite3.Connection, asset_name: str, units: list[UnitRow
         INSERT INTO snapshot_units (
             snapshot_id, sightmap_unit_id, unit_number, display_unit_number,
             floor_plan, floor_label, price, available_on,
-            display_price, display_available_on, area
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            display_price, display_available_on, area, specials_description
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         [
             (
@@ -301,6 +321,7 @@ def save_snapshot(conn: sqlite3.Connection, asset_name: str, units: list[UnitRow
                 u.display_price,
                 u.display_available_on,
                 u.area,
+                u.specials_description,
             )
             for u in units
         ],
@@ -319,6 +340,12 @@ def row_to_unit(r: sqlite3.Row) -> UnitRow:
             area_val = None
     else:
         area_val = None
+    spec_val: str | None
+    if "specials_description" in keys and r["specials_description"] is not None:
+        ss = str(r["specials_description"]).strip()
+        spec_val = ss if ss else None
+    else:
+        spec_val = None
     return UnitRow(
         sightmap_unit_id=str(r["sightmap_unit_id"]),
         unit_number=str(r["unit_number"]),
@@ -330,6 +357,7 @@ def row_to_unit(r: sqlite3.Row) -> UnitRow:
         display_price=str(r["display_price"]),
         display_available_on=str(r["display_available_on"]),
         area=area_val,
+        specials_description=spec_val,
     )
 
 
@@ -362,6 +390,7 @@ def diff_snapshots(prev: dict[str, UnitRow], curr: dict[str, UnitRow]) -> DiffRe
 
     price_changes: list[tuple[UnitRow, UnitRow]] = []
     available_changes: list[tuple[UnitRow, UnitRow]] = []
+    specials_changes: list[tuple[UnitRow, UnitRow]] = []
 
     for uid in prev_ids & curr_ids:
         a, b = prev[uid], curr[uid]
@@ -369,15 +398,21 @@ def diff_snapshots(prev: dict[str, UnitRow], curr: dict[str, UnitRow]) -> DiffRe
             price_changes.append((a, b))
         if (a.available_on or "") != (b.available_on or ""):
             available_changes.append((a, b))
+        if _norm_special_text(a.specials_description) != _norm_special_text(
+            b.specials_description
+        ):
+            specials_changes.append((a, b))
 
     price_changes.sort(key=lambda t: t[0].unit_number)
     available_changes.sort(key=lambda t: t[0].unit_number)
+    specials_changes.sort(key=lambda t: t[0].unit_number)
 
     return DiffResult(
         new_units=new_units,
         removed_units=removed_units,
         price_changes=price_changes,
         available_changes=available_changes,
+        specials_changes=specials_changes,
     )
 
 
@@ -407,7 +442,7 @@ def sort_units_by_floor_then_number(units: list[UnitRow]) -> list[UnitRow]:
     )
 
 
-_DIFF_KIND_ORDER = {"REMOVED": 0, "NEW": 1, "PRICE": 2, "AVAILABLE": 3}
+_DIFF_KIND_ORDER = {"REMOVED": 0, "NEW": 1, "PRICE": 2, "AVAILABLE": 3, "SPECIAL": 4}
 
 
 def build_diff_events(diff: DiffResult) -> list[dict[str, object]]:
@@ -418,10 +453,12 @@ def build_diff_events(diff: DiffResult) -> list[dict[str, object]]:
         fr = floor_rank_label(u.floor_label)
         ur, uk = unit_rank_tuple(u.unit_number)
         rent = u.display_price or (f"${u.price}" if u.price is not None else "—")
+        sp = _norm_special_text(u.specials_description)
+        spx = f" · had special: {_short_text(sp, 90)}" if sp else ""
         rows.append(
             {
                 "kind": "REMOVED",
-                "summary": f"{u.label()} — no longer listed ({rent})",
+                "summary": f"{u.label()} — no longer listed ({rent}){spx}",
                 "floor_rank": fr,
                 "unit_sort": ur,
                 "unit_key": uk,
@@ -433,10 +470,12 @@ def build_diff_events(diff: DiffResult) -> list[dict[str, object]]:
         ur, uk = unit_rank_tuple(u.unit_number)
         rent = u.display_price or (f"${u.price}" if u.price is not None else "—")
         move = u.display_available_on or u.available_on or "—"
+        sp = _norm_special_text(u.specials_description)
+        spx = f" · special: {_short_text(sp, 90)}" if sp else ""
         rows.append(
             {
                 "kind": "NEW",
-                "summary": f"{u.label()} — newly listed ({rent}; {move})",
+                "summary": f"{u.label()} — newly listed ({rent}; {move}){spx}",
                 "floor_rank": fr,
                 "unit_sort": ur,
                 "unit_key": uk,
@@ -473,6 +512,24 @@ def build_diff_events(diff: DiffResult) -> list[dict[str, object]]:
             }
         )
 
+    for old, new in diff.specials_changes:
+        fr = floor_rank_label(new.floor_label)
+        ur, uk = unit_rank_tuple(new.unit_number)
+        otxt = _norm_special_text(old.specials_description) or "—"
+        ntxt = _norm_special_text(new.specials_description) or "—"
+        rows.append(
+            {
+                "kind": "SPECIAL",
+                "summary": (
+                    f"{new.label()} — special text "
+                    f"{_short_text(otxt, 100)} → {_short_text(ntxt, 100)}"
+                ),
+                "floor_rank": fr,
+                "unit_sort": ur,
+                "unit_key": uk,
+            }
+        )
+
     rows.sort(
         key=lambda e: (
             -int(e["floor_rank"]),
@@ -487,19 +544,21 @@ def build_diff_events(diff: DiffResult) -> list[dict[str, object]]:
 def format_inventory_table(units_sorted: list[UnitRow]) -> str:
     lines = [
         "Current availability (high floor → low, then unit #)",
-        "-" * 86,
-        f"{'Floor':<14} {'Unit':<16} {'Plan':<6} {'Sq ft':>8} {'Rent':>14}  Available",
-        "-" * 86,
+        "-" * 118,
+        f"{'Floor':<12} {'Unit':<14} {'Pl':<5} {'Sq':>6} {'Rent':>12}  {'Avail':<14}  Specials",
+        "-" * 118,
     ]
     for u in units_sorted:
         apt = u.display_unit_number or u.unit_number or "—"
         sq = f"{u.area:,}" if u.area is not None else "—"
         rent = u.display_price or (f"${u.price:,}" if u.price is not None else "—")
-        move = u.display_available_on or u.available_on or "—"
+        move = (u.display_available_on or u.available_on or "—")[:14]
+        sp = _norm_special_text(u.specials_description)
+        spc = _short_text(sp, 40) if sp else "—"
         lines.append(
-            f"{u.floor_label:<14} {apt:<16} {u.floor_plan:<6} {sq:>8} {rent:>14}  {move}"
+            f"{u.floor_label:<12} {apt:<14} {u.floor_plan:<5} {sq:>6} {rent:>12}  {move:<14}  {spc}"
         )
-    lines.append("-" * 86)
+    lines.append("-" * 118)
     lines.append(f"Total listed: {len(units_sorted)} unit(s)\n")
     return "\n".join(lines)
 
@@ -507,7 +566,7 @@ def format_inventory_table(units_sorted: list[UnitRow]) -> str:
 def format_diff_section(prev_id: int, curr_id: int, diff: DiffResult) -> str:
     lines: list[str] = [
         f"Changes since last run (snapshot #{prev_id} → #{curr_id})",
-        "Order: high floor first, then unit #, then event type.",
+        "Order: high floor first, then unit #, then event type (incl. SPECIAL).",
         "",
     ]
     if not diff.any():
