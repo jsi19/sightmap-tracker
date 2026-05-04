@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-04T12:04:08.256710+00:00",
+  "generated_at": "2026-05-04T14:29:06.476085+00:00",
   "snapshot_id": 2,
-  "snapshot_fetched_at": "2026-05-04T12:04:08.150446+00:00",
+  "snapshot_fetched_at": "2026-05-04T14:29:06.144292+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 7,
+  "unit_count": 5,
   "units": [
     {
       "sightmap_unit_id": "9638642",
@@ -51,21 +51,6 @@
       "label": "APT 757 | A4 | Floor 7 (1 Bed / 1 Bath)"
     },
     {
-      "sightmap_unit_id": "9638453",
-      "floor_label": "Floor 5",
-      "unit_number": "535",
-      "display_unit_number": "APT 535",
-      "floor_plan": "E2",
-      "area": 519,
-      "price": 3405,
-      "display_price": "$3,405.00",
-      "available_on": "2026-07-07",
-      "display_available_on": "Available Jul 7th",
-      "specials_description": null,
-      "bed_bath_label": "Studio / 1 Bath",
-      "label": "APT 535 | E2 | Floor 5 (Studio / 1 Bath)"
-    },
-    {
       "sightmap_unit_id": "9638481",
       "floor_label": "Floor 5",
       "unit_number": "573",
@@ -79,21 +64,6 @@
       "specials_description": null,
       "bed_bath_label": "3 Bed / 2 Bath",
       "label": "APT 573 | C3 | Floor 5 (3 Bed / 2 Bath)"
-    },
-    {
-      "sightmap_unit_id": "9638387",
-      "floor_label": "Floor 4",
-      "unit_number": "418",
-      "display_unit_number": "APT 418",
-      "floor_plan": "A3",
-      "area": 594,
-      "price": 3703,
-      "display_price": "$3,703.00",
-      "available_on": "2026-08-21",
-      "display_available_on": "Available Aug 21st",
-      "specials_description": null,
-      "bed_bath_label": "1 Bed / 1 Bath",
-      "label": "APT 418 | A3 | Floor 4 (1 Bed / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638355",
@@ -116,15 +86,24 @@
       "from_snapshot_id": 1,
       "to_snapshot_id": 2
     },
-    "has_changes": false,
+    "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 0,
-      "removed": 0,
+      "removed": 2,
       "price": 0,
       "available": 0,
       "special": 0
     },
-    "events": []
+    "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 535 | E2 | Floor 5 \u2014 no longer listed ($3,405.00)"
+      },
+      {
+        "type": "REMOVED",
+        "summary": "APT 418 | A3 | Floor 4 \u2014 no longer listed ($3,703.00)"
+      }
+    ]
   }
 }
