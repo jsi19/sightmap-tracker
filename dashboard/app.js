@@ -45,7 +45,7 @@
 
       const table = document.createElement("table");
       table.innerHTML =
-        "<thead><tr><th>Unit</th><th>Plan</th><th>Sq ft</th><th>Rent</th><th>Available</th><th>Special</th></tr></thead>";
+        "<thead><tr><th>Unit</th><th>Plan</th><th>Layout</th><th>Sq ft</th><th>Rent</th><th>Available</th><th>Special</th></tr></thead>";
       const tb = document.createElement("tbody");
       for (const u of list) {
         const tr = document.createElement("tr");
@@ -56,11 +56,14 @@
         const spRaw = (u.specials_description || "").trim().replace(/\s+/g, " ");
         const sp =
           spRaw.length > 56 ? spRaw.slice(0, 55) + "…" : spRaw || "—";
+        const layout = (u.bed_bath_label || "—").trim() || "—";
         tr.innerHTML =
           "<td>" +
           escapeHtml(apt) +
           "</td><td>" +
           escapeHtml(u.floor_plan || "—") +
+          "</td><td>" +
+          escapeHtml(layout) +
           '</td><td class="num">' +
           escapeHtml(sq) +
           '</td><td class="num">' +

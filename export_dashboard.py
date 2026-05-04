@@ -28,6 +28,7 @@ def _unit_dict(u: st.UnitRow) -> dict:
         "available_on": u.available_on,
         "display_available_on": u.display_available_on,
         "specials_description": u.specials_description,
+        "bed_bath_label": u.bed_bath_label or "—",
         "label": u.label(),
     }
 

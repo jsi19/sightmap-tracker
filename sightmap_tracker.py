@@ -48,9 +48,14 @@ class UnitRow:
     display_available_on: str
     area: int | None = None
     specials_description: str | None = None
+    bed_bath_label: str = ""
 
     def label(self) -> str:
-        return f"{self.display_unit_number or self.unit_number} | {self.floor_plan} | {self.floor_label}"
+        base = f"{self.display_unit_number or self.unit_number} | {self.floor_plan} | {self.floor_label}"
+        bb = (self.bed_bath_label or "").strip()
+        if bb and bb != "—":
+            return f"{base} ({bb})"
+        return base
 
 
 @dataclass
@@ -167,14 +172,22 @@ def parse_units(payload: dict[str, Any]) -> tuple[str, list[UnitRow]]:
 
     floor_plans = data.get("floor_plans") or []
     plan_names: dict[str, str] = {}
+    plan_bed_bath: dict[str, str] = {}
     for fp in floor_plans:
         if not isinstance(fp, dict):
             continue
         pid = fp.get("id")
         if pid is None:
             continue
+        pid_s = str(pid)
         name = fp.get("name") or fp.get("filter_label") or str(pid)
-        plan_names[str(pid)] = str(name)
+        plan_names[pid_s] = str(name)
+        bed = str(fp.get("bedroom_label") or "").strip()
+        bath = str(fp.get("bathroom_label") or "").strip()
+        if bed and bath:
+            plan_bed_bath[pid_s] = f"{bed} / {bath}"
+        else:
+            plan_bed_bath[pid_s] = bed or bath or "—"
 
     floors = data.get("floors") or []
     floor_labels: dict[str, str] = {}
@@ -234,6 +247,7 @@ def parse_units(payload: dict[str, Any]) -> tuple[str, list[UnitRow]]:
                 display_available_on=str(u.get("display_available_on") or ""),
                 area=area_int,
                 specials_description=_norm_str(u.get("specials_description")),
+                bed_bath_label=plan_bed_bath.get(fp_id, "—"),
             )
         )
 
@@ -273,6 +287,7 @@ def init_db(conn: sqlite3.Connection) -> None:
             display_available_on TEXT NOT NULL,
             area INTEGER,
             specials_description TEXT,
+            bed_bath_label TEXT NOT NULL DEFAULT '',
             PRIMARY KEY (snapshot_id, sightmap_unit_id)
         );
         CREATE INDEX IF NOT EXISTS idx_snapshot_units_snapshot
@@ -291,6 +306,11 @@ def _migrate_schema(conn: sqlite3.Connection) -> None:
     if "specials_description" not in cols:
         conn.execute("ALTER TABLE snapshot_units ADD COLUMN specials_description TEXT")
         conn.commit()
+    if "bed_bath_label" not in cols:
+        conn.execute(
+            "ALTER TABLE snapshot_units ADD COLUMN bed_bath_label TEXT NOT NULL DEFAULT ''"
+        )
+        conn.commit()
 
 
 def save_snapshot(conn: sqlite3.Connection, asset_name: str, units: list[UnitRow]) -> int:
@@ -305,8 +325,9 @@ def save_snapshot(conn: sqlite3.Connection, asset_name: str, units: list[UnitRow
         INSERT INTO snapshot_units (
             snapshot_id, sightmap_unit_id, unit_number, display_unit_number,
             floor_plan, floor_label, price, available_on,
-            display_price, display_available_on, area, specials_description
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            display_price, display_available_on, area, specials_description,
+            bed_bath_label
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         [
             (
@@ -322,6 +343,7 @@ def save_snapshot(conn: sqlite3.Connection, asset_name: str, units: list[UnitRow
                 u.display_available_on,
                 u.area,
                 u.specials_description,
+                u.bed_bath_label or "",
             )
             for u in units
         ],
@@ -346,6 +368,9 @@ def row_to_unit(r: sqlite3.Row) -> UnitRow:
         spec_val = ss if ss else None
     else:
         spec_val = None
+    bb_val = ""
+    if "bed_bath_label" in keys and r["bed_bath_label"] is not None:
+        bb_val = str(r["bed_bath_label"]).strip()
     return UnitRow(
         sightmap_unit_id=str(r["sightmap_unit_id"]),
         unit_number=str(r["unit_number"]),
@@ -358,6 +383,7 @@ def row_to_unit(r: sqlite3.Row) -> UnitRow:
         display_available_on=str(r["display_available_on"]),
         area=area_val,
         specials_description=spec_val,
+        bed_bath_label=bb_val or "—",
     )
 
 
@@ -544,21 +570,24 @@ def build_diff_events(diff: DiffResult) -> list[dict[str, object]]:
 def format_inventory_table(units_sorted: list[UnitRow]) -> str:
     lines = [
         "Current availability (high floor → low, then unit #)",
-        "-" * 118,
-        f"{'Floor':<12} {'Unit':<14} {'Pl':<5} {'Sq':>6} {'Rent':>12}  {'Avail':<14}  Specials",
-        "-" * 118,
+        "-" * 132,
+        f"{'Floor':<11} {'Unit':<13} {'Plan':<5} {'Layout':<22} {'Sq':>6} {'Rent':>12}  {'Avail':<12}  Specials",
+        "-" * 132,
     ]
     for u in units_sorted:
         apt = u.display_unit_number or u.unit_number or "—"
         sq = f"{u.area:,}" if u.area is not None else "—"
         rent = u.display_price or (f"${u.price:,}" if u.price is not None else "—")
-        move = (u.display_available_on or u.available_on or "—")[:14]
+        move = (u.display_available_on or u.available_on or "—")[:12]
         sp = _norm_special_text(u.specials_description)
-        spc = _short_text(sp, 40) if sp else "—"
+        spc = _short_text(sp, 36) if sp else "—"
+        layout = (u.bed_bath_label or "—").strip() or "—"
+        if len(layout) > 22:
+            layout = layout[:21] + "…"
         lines.append(
-            f"{u.floor_label:<12} {apt:<14} {u.floor_plan:<5} {sq:>6} {rent:>12}  {move:<14}  {spc}"
+            f"{u.floor_label:<11} {apt:<13} {u.floor_plan:<5} {layout:<22} {sq:>6} {rent:>12}  {move:<12}  {spc}"
         )
-    lines.append("-" * 118)
+    lines.append("-" * 132)
     lines.append(f"Total listed: {len(units_sorted)} unit(s)\n")
     return "\n".join(lines)
 
