@@ -148,6 +148,75 @@ h1 {
   letter-spacing: 0.03em;
 }
 
+.my-lease {
+  border-color: var(--accent-dim);
+  background: linear-gradient(
+    135deg,
+    rgba(201, 169, 98, 0.08) 0%,
+    var(--card) 42%
+  );
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(201, 169, 98, 0.12) inset;
+}
+
+.my-lease-head {
+  border-bottom-color: rgba(201, 169, 98, 0.22);
+}
+
+.my-lease-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.my-lease-grid {
+  margin: 0;
+  display: grid;
+  gap: 0.85rem 1.5rem;
+}
+
+@media (min-width: 520px) {
+  .my-lease-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.my-lease-row {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.my-lease-row dt {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-weight: 500;
+  margin: 0;
+}
+
+.my-lease-row dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.my-lease-suffix {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.my-lease-note {
+  margin: 1.25rem 0 0;
+  font-size: 0.75rem;
+  color: var(--faint);
+  line-height: 1.45;
+}
+
 .count {
   font-size: 0.85rem;
   color: var(--muted);
