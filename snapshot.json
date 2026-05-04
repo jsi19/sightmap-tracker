@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-04T05:14:08.725512+00:00",
+  "generated_at": "2026-05-04T05:18:39.473830+00:00",
   "snapshot_id": 2,
-  "snapshot_fetched_at": "2026-05-04T05:14:08.613044+00:00",
+  "snapshot_fetched_at": "2026-05-04T05:18:39.374747+00:00",
   "asset_name": "AVE Santa Clara",
   "unit_count": 7,
   "units": [
@@ -17,7 +17,8 @@
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
       "specials_description": null,
-      "label": "APT 853 | A4 | Floor 8"
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 853 | A4 | Floor 8 (1 Bed / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638646",
@@ -31,7 +32,8 @@
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
       "specials_description": null,
-      "label": "APT 857 | A4 | Floor 8"
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 857 | A4 | Floor 8 (1 Bed / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638589",
@@ -45,7 +47,8 @@
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
       "specials_description": null,
-      "label": "APT 757 | A4 | Floor 7"
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 757 | A4 | Floor 7 (1 Bed / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638453",
@@ -59,7 +62,8 @@
       "available_on": "2026-07-07",
       "display_available_on": "Available Jul 7th",
       "specials_description": null,
-      "label": "APT 535 | E2 | Floor 5"
+      "bed_bath_label": "Studio / 1 Bath",
+      "label": "APT 535 | E2 | Floor 5 (Studio / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638481",
@@ -73,7 +77,8 @@
       "available_on": "2026-05-16",
       "display_available_on": "Available May 16th",
       "specials_description": null,
-      "label": "APT 573 | C3 | Floor 5"
+      "bed_bath_label": "3 Bed / 2 Bath",
+      "label": "APT 573 | C3 | Floor 5 (3 Bed / 2 Bath)"
     },
     {
       "sightmap_unit_id": "9638387",
@@ -87,7 +92,8 @@
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
       "specials_description": null,
-      "label": "APT 418 | A3 | Floor 4"
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 418 | A3 | Floor 4 (1 Bed / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638355",
@@ -101,7 +107,8 @@
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
       "specials_description": null,
-      "label": "APT 311 | A1 | Floor 3"
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 311 | A1 | Floor 3 (1 Bed / 1 Bath)"
     }
   ],
   "changes": {

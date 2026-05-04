@@ -331,13 +331,14 @@ tr:last-child td {
 }
 
 @media (max-width: 640px) {
-  th:nth-child(4),
-  td:nth-child(4) {
+  /* Unit, Plan, Layout, Available — hide Rent + Special on narrow screens */
+  th:nth-child(5),
+  td:nth-child(5) {
     display: none;
   }
 
-  th:nth-child(6),
-  td:nth-child(6) {
+  th:nth-child(7),
+  td:nth-child(7) {
     display: none;
   }
 }
