@@ -20,12 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/cache@v4
+      - name: Restore tracker state
+        id: restore-state
+        uses: actions/cache/restore@v4
         with:
           path: |
             sightmap.db
             changes.log
-          key: sightmap-state-v1-${{ github.repository }}
+          key: sightmap-state-v2-${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            sightmap-state-v2-${{ github.repository }}-
 
       - uses: actions/setup-python@v5
         with:
@@ -44,6 +48,14 @@ jobs:
 
       - name: Build dashboard for GitHub Pages
         run: python export_dashboard.py --output-dir _site
+
+      - name: Save tracker state
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            sightmap.db
+            changes.log
+          key: ${{ steps.restore-state.outputs.cache-primary-key }}
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
