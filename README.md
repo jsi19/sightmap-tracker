@@ -77,7 +77,7 @@ After each successful Action run, the workflow publishes a static site to the **
 3. **Branch:** `gh-pages` · **Folder:** `/ (root)`  
 4. Save. The site URL will look like **`https://jsi19.github.io/sightmap-tracker/`** (user + repo name). First deploy appears after the next green workflow run that includes the deploy step.
 
-The page is **public** (GitHub Pages); it only shows the same class of data as the public SightMap feed (no webhooks or secrets).
+The page is **public** (GitHub Pages). On a **free** GitHub account, **project Pages for a private repository are not available**, so this repo is **public** to enable Pages at no cost. The published site only shows the same class of data as the public SightMap feed (no webhooks or secrets in the repo or on the site).
 
 **Local preview** (after `python sightmap_tracker.py`):
 
