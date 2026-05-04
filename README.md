@@ -66,6 +66,28 @@ The repo includes [`.github/workflows/sightmap-tracker.yml`](.github/workflows/s
 
 Scheduled workflows only run on the **default** branch. Cron is **UTC** (not Pacific).
 
+### Web dashboard (dark luxury UI)
+
+After each successful Action run, the workflow publishes a static site to the **`gh-pages`** branch (HTML/CSS/JS in `dashboard/` plus generated `snapshot.json`).
+
+**One-time setup**
+
+1. Repo **Settings → Pages**  
+2. **Build and deployment → Source:** *Deploy from a branch*  
+3. **Branch:** `gh-pages` · **Folder:** `/ (root)`  
+4. Save. The site URL will look like **`https://jsi19.github.io/sightmap-tracker/`** (user + repo name). First deploy appears after the next green workflow run that includes the deploy step.
+
+The page is **public** (GitHub Pages); it only shows the same class of data as the public SightMap feed (no webhooks or secrets).
+
+**Local preview** (after `python sightmap_tracker.py`):
+
+```bash
+python export_dashboard.py --output-dir _site
+python -m http.server 8765 --directory _site
+```
+
+Open `http://127.0.0.1:8765/`.
+
 ## macOS LaunchAgent (every 2 hours)
 
 1. Install the venv and `.env` as above.  

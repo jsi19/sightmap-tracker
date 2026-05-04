@@ -11,6 +11,9 @@ concurrency:
   group: sightmap-tracker
   cancel-in-progress: false
 
+permissions:
+  contents: write
+
 jobs:
   track:
     runs-on: ubuntu-latest
@@ -38,3 +41,12 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           DISCORD_ONLY_ON_CHANGES: "true"
         run: python sightmap_tracker.py
+
+      - name: Build dashboard for GitHub Pages
+        run: python export_dashboard.py --output-dir _site
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
