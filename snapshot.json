@@ -1,25 +1,10 @@
 {
-  "generated_at": "2026-05-06T21:20:09.963258+00:00",
-  "snapshot_id": 20,
-  "snapshot_fetched_at": "2026-05-06T21:20:09.855841+00:00",
+  "generated_at": "2026-05-06T23:04:11.815658+00:00",
+  "snapshot_id": 21,
+  "snapshot_fetched_at": "2026-05-06T23:04:11.491741+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 5,
+  "unit_count": 4,
   "units": [
-    {
-      "sightmap_unit_id": "9638642",
-      "floor_label": "Floor 8",
-      "unit_number": "853",
-      "display_unit_number": "APT 853",
-      "floor_plan": "A4",
-      "area": 643,
-      "price": 3894,
-      "display_price": "$3,894.00",
-      "available_on": "2026-08-21",
-      "display_available_on": "Available Aug 21st",
-      "specials_description": null,
-      "bed_bath_label": "1 Bed / 1 Bath",
-      "label": "APT 853 | A4 | Floor 8 (1 Bed / 1 Bath)"
-    },
     {
       "sightmap_unit_id": "9638481",
       "floor_label": "Floor 5",
@@ -84,18 +69,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 20
+      "to_snapshot_id": 21
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 2,
-      "removed": 4,
+      "removed": 5,
       "price": 0,
       "available": 0,
       "special": 0
     },
     "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 853 | A4 | Floor 8 (1 Bed / 1 Bath) \u2014 no longer listed ($3,894.00)",
+        "from_snapshot_id": 20,
+        "to_snapshot_id": 21,
+        "from_snapshot_fetched_at": "2026-05-06T21:20:09.855841+00:00",
+        "to_snapshot_fetched_at": "2026-05-06T23:04:11.491741+00:00",
+        "snapshot_fetched_at": "2026-05-06T23:04:11.491741+00:00"
+      },
       {
         "type": "REMOVED",
         "summary": "APT 857 | A4 | Floor 8 (1 Bed / 1 Bath) \u2014 no longer listed ($3,894.00)",
@@ -151,6 +145,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 20
+    "snapshot_count": 21
   }
 }
