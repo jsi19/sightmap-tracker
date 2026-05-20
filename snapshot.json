@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-20T17:26:28.256677+00:00",
-  "snapshot_id": 131,
-  "snapshot_fetched_at": "2026-05-20T17:26:28.133931+00:00",
+  "generated_at": "2026-05-20T20:29:03.393782+00:00",
+  "snapshot_id": 132,
+  "snapshot_fetched_at": "2026-05-20T20:29:02.851791+00:00",
   "asset_name": "AVE Santa Clara",
   "unit_count": 6,
   "units": [
@@ -12,8 +12,8 @@
       "display_unit_number": "APT 757",
       "floor_plan": "A4",
       "area": 643,
-      "price": 3814,
-      "display_price": "$3,814.00",
+      "price": 3885,
+      "display_price": "$3,885.00",
       "available_on": "2026-08-22",
       "display_available_on": "Available Aug 22nd",
       "specials_description": null,
@@ -27,8 +27,8 @@
       "display_unit_number": "APT 764",
       "floor_plan": "A3",
       "area": 594,
-      "price": 3528,
-      "display_price": "$3,528.00",
+      "price": 3630,
+      "display_price": "$3,630.00",
       "available_on": "2026-08-22",
       "display_available_on": "Available Aug 22nd",
       "specials_description": null,
@@ -42,8 +42,8 @@
       "display_unit_number": "APT 531",
       "floor_plan": "B2",
       "area": 1017,
-      "price": 5822,
-      "display_price": "$5,822.00",
+      "price": 5984,
+      "display_price": "$5,984.00",
       "available_on": "2026-08-23",
       "display_available_on": "Available Aug 23rd",
       "specials_description": null,
@@ -87,8 +87,8 @@
       "display_unit_number": "APT 455",
       "floor_plan": "A6",
       "area": 706,
-      "price": 4128,
-      "display_price": "$4,128.00",
+      "price": 4205,
+      "display_price": "$4,205.00",
       "available_on": "2026-08-21",
       "display_available_on": "Available Aug 21st",
       "specials_description": null,
@@ -99,18 +99,54 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 131
+      "to_snapshot_id": 132
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 9,
       "removed": 10,
-      "price": 0,
+      "price": 4,
       "available": 1,
       "special": 0
     },
     "events": [
+      {
+        "type": "PRICE",
+        "summary": "APT 757 | A4 | Floor 7 (1 Bed / 1 Bath) \u2014 rent $3,814.00 \u2192 $3,885.00",
+        "from_snapshot_id": 131,
+        "to_snapshot_id": 132,
+        "from_snapshot_fetched_at": "2026-05-20T17:26:28.133931+00:00",
+        "to_snapshot_fetched_at": "2026-05-20T20:29:02.851791+00:00",
+        "snapshot_fetched_at": "2026-05-20T20:29:02.851791+00:00"
+      },
+      {
+        "type": "PRICE",
+        "summary": "APT 764 | A3 | Floor 7 (1 Bed / 1 Bath) \u2014 rent $3,528.00 \u2192 $3,630.00",
+        "from_snapshot_id": 131,
+        "to_snapshot_id": 132,
+        "from_snapshot_fetched_at": "2026-05-20T17:26:28.133931+00:00",
+        "to_snapshot_fetched_at": "2026-05-20T20:29:02.851791+00:00",
+        "snapshot_fetched_at": "2026-05-20T20:29:02.851791+00:00"
+      },
+      {
+        "type": "PRICE",
+        "summary": "APT 531 | B2 | Floor 5 (2 Bed / 2 Bath) \u2014 rent $5,822.00 \u2192 $5,984.00",
+        "from_snapshot_id": 131,
+        "to_snapshot_id": 132,
+        "from_snapshot_fetched_at": "2026-05-20T17:26:28.133931+00:00",
+        "to_snapshot_fetched_at": "2026-05-20T20:29:02.851791+00:00",
+        "snapshot_fetched_at": "2026-05-20T20:29:02.851791+00:00"
+      },
+      {
+        "type": "PRICE",
+        "summary": "APT 455 | A6 | Floor 4 (1 Bed / 1 Bath) \u2014 rent $4,128.00 \u2192 $4,205.00",
+        "from_snapshot_id": 131,
+        "to_snapshot_id": 132,
+        "from_snapshot_fetched_at": "2026-05-20T17:26:28.133931+00:00",
+        "to_snapshot_fetched_at": "2026-05-20T20:29:02.851791+00:00",
+        "snapshot_fetched_at": "2026-05-20T20:29:02.851791+00:00"
+      },
       {
         "type": "REMOVED",
         "summary": "APT 604 | E1 | Floor 6 (Studio / 1 Bath) \u2014 no longer listed ($2,985.00)",
@@ -292,6 +328,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 131
+    "snapshot_count": 132
   }
 }
