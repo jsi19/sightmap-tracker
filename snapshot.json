@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-22T12:33:33.746143+00:00",
-  "snapshot_id": 142,
-  "snapshot_fetched_at": "2026-05-22T12:33:33.606410+00:00",
+  "generated_at": "2026-05-22T16:35:45.966859+00:00",
+  "snapshot_id": 143,
+  "snapshot_fetched_at": "2026-05-22T16:35:45.515175+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 6,
+  "unit_count": 7,
   "units": [
     {
       "sightmap_unit_id": "9638589",
@@ -49,6 +49,21 @@
       "specials_description": null,
       "bed_bath_label": "2 Bed / 2 Bath",
       "label": "APT 531 | B2 | Floor 5 (2 Bed / 2 Bath)"
+    },
+    {
+      "sightmap_unit_id": "9638462",
+      "floor_label": "Floor 5",
+      "unit_number": "552",
+      "display_unit_number": "APT 552",
+      "floor_plan": "E1",
+      "area": 477,
+      "price": 3310,
+      "display_price": "$3,310.00",
+      "available_on": "2026-06-28",
+      "display_available_on": "Available Jun 28th",
+      "specials_description": null,
+      "bed_bath_label": "Studio / 1 Bath",
+      "label": "APT 552 | E1 | Floor 5 (Studio / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638481",
@@ -99,18 +114,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 142
+      "to_snapshot_id": 143
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
-      "new": 9,
+      "new": 10,
       "removed": 10,
       "price": 4,
       "available": 1,
       "special": 0
     },
     "events": [
+      {
+        "type": "NEW",
+        "summary": "APT 552 | E1 | Floor 5 (Studio / 1 Bath) \u2014 newly listed ($3,310.00; Available Jun 28th)",
+        "from_snapshot_id": 142,
+        "to_snapshot_id": 143,
+        "from_snapshot_fetched_at": "2026-05-22T12:33:33.606410+00:00",
+        "to_snapshot_fetched_at": "2026-05-22T16:35:45.515175+00:00",
+        "snapshot_fetched_at": "2026-05-22T16:35:45.515175+00:00"
+      },
       {
         "type": "PRICE",
         "summary": "APT 757 | A4 | Floor 7 (1 Bed / 1 Bath) \u2014 rent $3,814.00 \u2192 $3,885.00",
@@ -328,6 +352,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 142
+    "snapshot_count": 143
   }
 }
