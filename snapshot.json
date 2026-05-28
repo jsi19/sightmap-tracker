@@ -1,10 +1,40 @@
 {
-  "generated_at": "2026-05-28T10:22:49.209849+00:00",
-  "snapshot_id": 185,
-  "snapshot_fetched_at": "2026-05-28T10:22:49.083661+00:00",
+  "generated_at": "2026-05-28T16:30:52.652380+00:00",
+  "snapshot_id": 186,
+  "snapshot_fetched_at": "2026-05-28T16:30:50.725751+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 8,
+  "unit_count": 11,
   "units": [
+    {
+      "sightmap_unit_id": "9638651",
+      "floor_label": "Floor 8",
+      "unit_number": "864",
+      "display_unit_number": "APT 864",
+      "floor_plan": "A3",
+      "area": 594,
+      "price": 3710,
+      "display_price": "$3,710.00",
+      "available_on": "2026-07-20",
+      "display_available_on": "Available Jul 20th",
+      "specials_description": null,
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 864 | A3 | Floor 8 (1 Bed / 1 Bath)"
+    },
+    {
+      "sightmap_unit_id": "9638654",
+      "floor_label": "Floor 8",
+      "unit_number": "867",
+      "display_unit_number": "APT 867",
+      "floor_plan": "A2",
+      "area": 598,
+      "price": 3675,
+      "display_price": "$3,675.00",
+      "available_on": "2026-08-28",
+      "display_available_on": "Available Aug 28th",
+      "specials_description": null,
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 867 | A2 | Floor 8 (1 Bed / 1 Bath)"
+    },
     {
       "sightmap_unit_id": "9638589",
       "floor_label": "Floor 7",
@@ -111,6 +141,21 @@
       "label": "APT 404 | E1 | Floor 4 (Studio / 1 Bath)"
     },
     {
+      "sightmap_unit_id": "9638392",
+      "floor_label": "Floor 4",
+      "unit_number": "425",
+      "display_unit_number": "APT 425",
+      "floor_plan": "A3",
+      "area": 594,
+      "price": 3855,
+      "display_price": "$3,855.00",
+      "available_on": "2026-07-29",
+      "display_available_on": "Available Jul 29th",
+      "specials_description": null,
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 425 | A3 | Floor 4 (1 Bed / 1 Bath)"
+    },
+    {
       "sightmap_unit_id": "9638406",
       "floor_label": "Floor 4",
       "unit_number": "455",
@@ -129,18 +174,45 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 185
+      "to_snapshot_id": 186
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
-      "new": 11,
+      "new": 14,
       "removed": 10,
       "price": 4,
       "available": 1,
       "special": 0
     },
     "events": [
+      {
+        "type": "NEW",
+        "summary": "APT 864 | A3 | Floor 8 (1 Bed / 1 Bath) \u2014 newly listed ($3,710.00; Available Jul 20th)",
+        "from_snapshot_id": 185,
+        "to_snapshot_id": 186,
+        "from_snapshot_fetched_at": "2026-05-28T10:22:49.083661+00:00",
+        "to_snapshot_fetched_at": "2026-05-28T16:30:50.725751+00:00",
+        "snapshot_fetched_at": "2026-05-28T16:30:50.725751+00:00"
+      },
+      {
+        "type": "NEW",
+        "summary": "APT 867 | A2 | Floor 8 (1 Bed / 1 Bath) \u2014 newly listed ($3,675.00; Available Aug 28th)",
+        "from_snapshot_id": 185,
+        "to_snapshot_id": 186,
+        "from_snapshot_fetched_at": "2026-05-28T10:22:49.083661+00:00",
+        "to_snapshot_fetched_at": "2026-05-28T16:30:50.725751+00:00",
+        "snapshot_fetched_at": "2026-05-28T16:30:50.725751+00:00"
+      },
+      {
+        "type": "NEW",
+        "summary": "APT 425 | A3 | Floor 4 (1 Bed / 1 Bath) \u2014 newly listed ($3,855.00; Available Jul 29th)",
+        "from_snapshot_id": 185,
+        "to_snapshot_id": 186,
+        "from_snapshot_fetched_at": "2026-05-28T10:22:49.083661+00:00",
+        "to_snapshot_fetched_at": "2026-05-28T16:30:50.725751+00:00",
+        "snapshot_fetched_at": "2026-05-28T16:30:50.725751+00:00"
+      },
       {
         "type": "NEW",
         "summary": "APT 661 | B3 | Floor 6 (2 Bed / 2 Bath) \u2014 newly listed ($5,911.00; Available Jun 30th)",
@@ -376,6 +448,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 185
+    "snapshot_count": 186
   }
 }
