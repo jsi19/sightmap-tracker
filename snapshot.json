@@ -1,25 +1,10 @@
 {
-  "generated_at": "2026-05-28T23:41:13.575651+00:00",
-  "snapshot_id": 188,
-  "snapshot_fetched_at": "2026-05-28T23:41:13.452921+00:00",
+  "generated_at": "2026-05-29T04:39:16.089590+00:00",
+  "snapshot_id": 189,
+  "snapshot_fetched_at": "2026-05-29T04:39:15.762862+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 11,
+  "unit_count": 10,
   "units": [
-    {
-      "sightmap_unit_id": "9638651",
-      "floor_label": "Floor 8",
-      "unit_number": "864",
-      "display_unit_number": "APT 864",
-      "floor_plan": "A3",
-      "area": 594,
-      "price": 3710,
-      "display_price": "$3,710.00",
-      "available_on": "2026-07-20",
-      "display_available_on": "Available Jul 20th",
-      "specials_description": null,
-      "bed_bath_label": "1 Bed / 1 Bath",
-      "label": "APT 864 | A3 | Floor 8 (1 Bed / 1 Bath)"
-    },
     {
       "sightmap_unit_id": "9638654",
       "floor_label": "Floor 8",
@@ -174,18 +159,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 188
+      "to_snapshot_id": 189
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 14,
-      "removed": 10,
+      "removed": 11,
       "price": 4,
       "available": 1,
       "special": 0
     },
     "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 864 | A3 | Floor 8 (1 Bed / 1 Bath) \u2014 no longer listed ($3,710.00)",
+        "from_snapshot_id": 188,
+        "to_snapshot_id": 189,
+        "from_snapshot_fetched_at": "2026-05-28T23:41:13.452921+00:00",
+        "to_snapshot_fetched_at": "2026-05-29T04:39:15.762862+00:00",
+        "snapshot_fetched_at": "2026-05-29T04:39:15.762862+00:00"
+      },
       {
         "type": "NEW",
         "summary": "APT 864 | A3 | Floor 8 (1 Bed / 1 Bath) \u2014 newly listed ($3,710.00; Available Jul 20th)",
@@ -448,6 +442,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 188
+    "snapshot_count": 189
   }
 }
