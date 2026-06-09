@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-09T16:43:39.105925+00:00",
-  "snapshot_id": 263,
-  "snapshot_fetched_at": "2026-06-09T16:43:38.972492+00:00",
+  "generated_at": "2026-06-09T20:19:45.436248+00:00",
+  "snapshot_id": 264,
+  "snapshot_fetched_at": "2026-06-09T20:19:44.873588+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 5,
+  "unit_count": 7,
   "units": [
     {
       "sightmap_unit_id": "9638557",
@@ -36,6 +36,21 @@
       "label": "APT 735 | E2 | Floor 7 (Studio / 1 Bath)"
     },
     {
+      "sightmap_unit_id": "9638598",
+      "floor_label": "Floor 7",
+      "unit_number": "768",
+      "display_unit_number": "APT 768",
+      "floor_plan": "A5",
+      "area": 649,
+      "price": 3722,
+      "display_price": "$3,722.00",
+      "available_on": "2026-08-02",
+      "display_available_on": "Available Aug 2nd",
+      "specials_description": null,
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 768 | A5 | Floor 7 (1 Bed / 1 Bath)"
+    },
+    {
       "sightmap_unit_id": "9638450",
       "floor_label": "Floor 5",
       "unit_number": "531",
@@ -66,6 +81,21 @@
       "label": "APT 573 | C3 | Floor 5 (3 Bed / 2 Bath)"
     },
     {
+      "sightmap_unit_id": "9638377",
+      "floor_label": "Floor 4",
+      "unit_number": "406",
+      "display_unit_number": "APT 406",
+      "floor_plan": "E1",
+      "area": 477,
+      "price": 3495,
+      "display_price": "$3,495.00",
+      "available_on": "2026-07-05",
+      "display_available_on": "Available Jul 5th",
+      "specials_description": null,
+      "bed_bath_label": "Studio / 1 Bath",
+      "label": "APT 406 | E1 | Floor 4 (Studio / 1 Bath)"
+    },
+    {
       "sightmap_unit_id": "9638387",
       "floor_label": "Floor 4",
       "unit_number": "418",
@@ -84,18 +114,36 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 263
+      "to_snapshot_id": 264
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
-      "new": 24,
+      "new": 26,
       "removed": 26,
       "price": 5,
       "available": 1,
       "special": 0
     },
     "events": [
+      {
+        "type": "NEW",
+        "summary": "APT 768 | A5 | Floor 7 (1 Bed / 1 Bath) \u2014 newly listed ($3,722.00; Available Aug 2nd)",
+        "from_snapshot_id": 263,
+        "to_snapshot_id": 264,
+        "from_snapshot_fetched_at": "2026-06-09T16:43:38.972492+00:00",
+        "to_snapshot_fetched_at": "2026-06-09T20:19:44.873588+00:00",
+        "snapshot_fetched_at": "2026-06-09T20:19:44.873588+00:00"
+      },
+      {
+        "type": "NEW",
+        "summary": "APT 406 | E1 | Floor 4 (Studio / 1 Bath) \u2014 newly listed ($3,495.00; Available Jul 5th)",
+        "from_snapshot_id": 263,
+        "to_snapshot_id": 264,
+        "from_snapshot_fetched_at": "2026-06-09T16:43:38.972492+00:00",
+        "to_snapshot_fetched_at": "2026-06-09T20:19:44.873588+00:00",
+        "snapshot_fetched_at": "2026-06-09T20:19:44.873588+00:00"
+      },
       {
         "type": "NEW",
         "summary": "APT 716 | A6 | Floor 7 (1 Bed / 1 Bath) \u2014 newly listed ($4,280.00; Available Jul 7th)",
@@ -601,6 +649,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 263
+    "snapshot_count": 264
   }
 }
