@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-17T11:15:45.020277+00:00",
-  "snapshot_id": 308,
-  "snapshot_fetched_at": "2026-06-17T11:15:44.885795+00:00",
+  "generated_at": "2026-06-17T16:00:11.156656+00:00",
+  "snapshot_id": 309,
+  "snapshot_fetched_at": "2026-06-17T16:00:10.698736+00:00",
   "asset_name": "AVE Santa Clara",
   "unit_count": 5,
   "units": [
@@ -27,8 +27,8 @@
       "display_unit_number": "APT 651",
       "floor_plan": "A5",
       "area": 649,
-      "price": 3687,
-      "display_price": "$3,687.00",
+      "price": 3797,
+      "display_price": "$3,797.00",
       "available_on": "2026-07-23",
       "display_available_on": "Available Jul 23rd",
       "specials_description": null,
@@ -84,18 +84,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 308
+      "to_snapshot_id": 309
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 30,
       "removed": 32,
-      "price": 5,
+      "price": 6,
       "available": 1,
       "special": 0
     },
     "events": [
+      {
+        "type": "PRICE",
+        "summary": "APT 651 | A5 | Floor 6 (1 Bed / 1 Bath) \u2014 rent $3,687.00 \u2192 $3,797.00",
+        "from_snapshot_id": 308,
+        "to_snapshot_id": 309,
+        "from_snapshot_fetched_at": "2026-06-17T11:15:44.885795+00:00",
+        "to_snapshot_fetched_at": "2026-06-17T16:00:10.698736+00:00",
+        "snapshot_fetched_at": "2026-06-17T16:00:10.698736+00:00"
+      },
       {
         "type": "REMOVED",
         "summary": "APT 531 | B2 | Floor 5 (2 Bed / 2 Bath) \u2014 no longer listed ($5,984.00)",
@@ -709,6 +718,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 308
+    "snapshot_count": 309
   }
 }
