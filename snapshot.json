@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-27T11:45:06.994883+00:00",
-  "snapshot_id": 371,
-  "snapshot_fetched_at": "2026-06-27T11:45:06.853074+00:00",
+  "generated_at": "2026-06-27T14:04:07.804657+00:00",
+  "snapshot_id": 372,
+  "snapshot_fetched_at": "2026-06-27T14:04:07.662746+00:00",
   "asset_name": "AVE Santa Clara",
   "unit_count": 9,
   "units": [
@@ -144,7 +144,7 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 371
+      "to_snapshot_id": 372
     },
     "has_changes": true,
     "baseline": false,
@@ -841,6 +841,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 371
+    "snapshot_count": 372
   }
 }
