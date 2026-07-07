@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T12:37:24.305348+00:00",
-  "snapshot_id": 445,
-  "snapshot_fetched_at": "2026-07-07T12:37:24.176616+00:00",
+  "generated_at": "2026-07-07T16:40:55.939542+00:00",
+  "snapshot_id": 446,
+  "snapshot_fetched_at": "2026-07-07T16:40:55.504836+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 6,
+  "unit_count": 7,
   "units": [
     {
       "sightmap_unit_id": "9638600",
@@ -19,6 +19,21 @@
       "specials_description": null,
       "bed_bath_label": "1 Bed / 1 Bath",
       "label": "APT 770 | A5 | Floor 7 (1 Bed / 1 Bath)"
+    },
+    {
+      "sightmap_unit_id": "9638490",
+      "floor_label": "Floor 6",
+      "unit_number": "609",
+      "display_unit_number": "APT 609",
+      "floor_plan": "A5",
+      "area": 649,
+      "price": 3797,
+      "display_price": "$3,797.00",
+      "available_on": "2026-08-11",
+      "display_available_on": "Available Aug 11th",
+      "specials_description": null,
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 609 | A5 | Floor 6 (1 Bed / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638522",
@@ -99,18 +114,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 445
+      "to_snapshot_id": 446
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
-      "new": 36,
+      "new": 37,
       "removed": 37,
       "price": 7,
       "available": 1,
       "special": 0
     },
     "events": [
+      {
+        "type": "NEW",
+        "summary": "APT 609 | A5 | Floor 6 (1 Bed / 1 Bath) \u2014 newly listed ($3,797.00; Available Aug 11th)",
+        "from_snapshot_id": 445,
+        "to_snapshot_id": 446,
+        "from_snapshot_fetched_at": "2026-07-07T12:37:24.176616+00:00",
+        "to_snapshot_fetched_at": "2026-07-07T16:40:55.504836+00:00",
+        "snapshot_fetched_at": "2026-07-07T16:40:55.504836+00:00"
+      },
       {
         "type": "REMOVED",
         "summary": "APT 573 | C3 | Floor 5 (3 Bed / 2 Bath) \u2014 no longer listed ($6,779.00)",
@@ -841,6 +865,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 445
+    "snapshot_count": 446
   }
 }
