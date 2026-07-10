@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T09:51:12.598361+00:00",
-  "snapshot_id": 464,
-  "snapshot_fetched_at": "2026-07-10T09:51:12.467241+00:00",
+  "generated_at": "2026-07-10T12:35:48.390136+00:00",
+  "snapshot_id": 465,
+  "snapshot_fetched_at": "2026-07-10T12:35:48.025815+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 8,
+  "unit_count": 7,
   "units": [
     {
       "sightmap_unit_id": "9638600",
@@ -109,38 +109,32 @@
       "specials_description": null,
       "bed_bath_label": "1 Bed / 1 Bath",
       "label": "APT 418 | A3 | Floor 4 (1 Bed / 1 Bath)"
-    },
-    {
-      "sightmap_unit_id": "9638403",
-      "floor_label": "Floor 4",
-      "unit_number": "452",
-      "display_unit_number": "APT 452",
-      "floor_plan": "E1",
-      "area": 477,
-      "price": 3320,
-      "display_price": "$3,320.00",
-      "available_on": "2026-08-17",
-      "display_available_on": "Available Aug 17th",
-      "specials_description": null,
-      "bed_bath_label": "Studio / 1 Bath",
-      "label": "APT 452 | E1 | Floor 4 (Studio / 1 Bath)"
     }
   ],
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 464
+      "to_snapshot_id": 465
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 39,
-      "removed": 38,
+      "removed": 39,
       "price": 7,
       "available": 2,
       "special": 0
     },
     "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 452 | E1 | Floor 4 (Studio / 1 Bath) \u2014 no longer listed ($3,320.00)",
+        "from_snapshot_id": 464,
+        "to_snapshot_id": 465,
+        "from_snapshot_fetched_at": "2026-07-10T09:51:12.467241+00:00",
+        "to_snapshot_fetched_at": "2026-07-10T12:35:48.025815+00:00",
+        "snapshot_fetched_at": "2026-07-10T12:35:48.025815+00:00"
+      },
       {
         "type": "AVAILABLE",
         "summary": "APT 661 | B3 | Floor 6 (2 Bed / 2 Bath) \u2014 move-in / availability Available Now \u2192 Available Now",
@@ -916,6 +910,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 464
+    "snapshot_count": 465
   }
 }
