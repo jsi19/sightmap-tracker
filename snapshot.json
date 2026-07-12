@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T23:06:03.335960+00:00",
-  "snapshot_id": 479,
-  "snapshot_fetched_at": "2026-07-11T23:06:03.200486+00:00",
+  "generated_at": "2026-07-12T03:50:48.286085+00:00",
+  "snapshot_id": 480,
+  "snapshot_fetched_at": "2026-07-12T03:50:47.705071+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 6,
+  "unit_count": 5,
   "units": [
     {
       "sightmap_unit_id": "9638600",
@@ -44,7 +44,7 @@
       "area": 1044,
       "price": 5911,
       "display_price": "$5,911.00",
-      "available_on": "2026-07-11",
+      "available_on": "2026-07-12",
       "display_available_on": "Available Now",
       "specials_description": null,
       "bed_bath_label": "2 Bed / 2 Bath",
@@ -66,21 +66,6 @@
       "label": "APT 670 | A5 | Floor 6 (1 Bed / 1 Bath)"
     },
     {
-      "sightmap_unit_id": "9638455",
-      "floor_label": "Floor 5",
-      "unit_number": "540",
-      "display_unit_number": "APT 540",
-      "floor_plan": "A6",
-      "area": 706,
-      "price": 4270,
-      "display_price": "$4,270.00",
-      "available_on": "2026-07-18",
-      "display_available_on": "Available Jul 18th",
-      "specials_description": null,
-      "bed_bath_label": "1 Bed / 1 Bath",
-      "label": "APT 540 | A6 | Floor 5 (1 Bed / 1 Bath)"
-    },
-    {
       "sightmap_unit_id": "9638387",
       "floor_label": "Floor 4",
       "unit_number": "418",
@@ -99,18 +84,36 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 479
+      "to_snapshot_id": 480
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 39,
-      "removed": 40,
+      "removed": 41,
       "price": 7,
-      "available": 3,
+      "available": 4,
       "special": 0
     },
     "events": [
+      {
+        "type": "AVAILABLE",
+        "summary": "APT 661 | B3 | Floor 6 (2 Bed / 2 Bath) \u2014 move-in / availability Available Now \u2192 Available Now",
+        "from_snapshot_id": 479,
+        "to_snapshot_id": 480,
+        "from_snapshot_fetched_at": "2026-07-11T23:06:03.200486+00:00",
+        "to_snapshot_fetched_at": "2026-07-12T03:50:47.705071+00:00",
+        "snapshot_fetched_at": "2026-07-12T03:50:47.705071+00:00"
+      },
+      {
+        "type": "REMOVED",
+        "summary": "APT 540 | A6 | Floor 5 (1 Bed / 1 Bath) \u2014 no longer listed ($4,270.00)",
+        "from_snapshot_id": 479,
+        "to_snapshot_id": 480,
+        "from_snapshot_fetched_at": "2026-07-11T23:06:03.200486+00:00",
+        "to_snapshot_fetched_at": "2026-07-12T03:50:47.705071+00:00",
+        "snapshot_fetched_at": "2026-07-12T03:50:47.705071+00:00"
+      },
       {
         "type": "REMOVED",
         "summary": "APT 651 | A5 | Floor 6 (1 Bed / 1 Bath) \u2014 no longer listed ($3,997.00)",
@@ -913,6 +916,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 479
+    "snapshot_count": 480
   }
 }
