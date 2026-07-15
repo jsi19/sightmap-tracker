@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-14T23:08:38.200982+00:00",
-  "snapshot_id": 506,
-  "snapshot_fetched_at": "2026-07-14T23:08:38.047164+00:00",
+  "generated_at": "2026-07-15T03:27:32.652189+00:00",
+  "snapshot_id": 507,
+  "snapshot_fetched_at": "2026-07-15T03:27:32.258888+00:00",
   "asset_name": "AVE Santa Clara",
   "unit_count": 7,
   "units": [
@@ -59,7 +59,7 @@
       "area": 1044,
       "price": 5911,
       "display_price": "$5,911.00",
-      "available_on": "2026-07-14",
+      "available_on": "2026-07-15",
       "display_available_on": "Available Now",
       "specials_description": null,
       "bed_bath_label": "2 Bed / 2 Bath",
@@ -114,7 +114,7 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 506
+      "to_snapshot_id": 507
     },
     "has_changes": true,
     "baseline": false,
@@ -122,10 +122,19 @@
       "new": 41,
       "removed": 41,
       "price": 7,
-      "available": 6,
+      "available": 7,
       "special": 0
     },
     "events": [
+      {
+        "type": "AVAILABLE",
+        "summary": "APT 661 | B3 | Floor 6 (2 Bed / 2 Bath) \u2014 move-in / availability Available Now \u2192 Available Now",
+        "from_snapshot_id": 506,
+        "to_snapshot_id": 507,
+        "from_snapshot_fetched_at": "2026-07-14T23:08:38.047164+00:00",
+        "to_snapshot_fetched_at": "2026-07-15T03:27:32.258888+00:00",
+        "snapshot_fetched_at": "2026-07-15T03:27:32.258888+00:00"
+      },
       {
         "type": "NEW",
         "summary": "APT 804 | E1 | Floor 8 (Studio / 1 Bath) \u2014 newly listed ($3,375.00; Available Aug 27th)",
@@ -982,6 +991,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 506
+    "snapshot_count": 507
   }
 }
