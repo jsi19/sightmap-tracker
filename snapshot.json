@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-17T23:04:06.122665+00:00",
-  "snapshot_id": 532,
-  "snapshot_fetched_at": "2026-07-17T23:04:05.964204+00:00",
+  "generated_at": "2026-07-18T03:25:25.672065+00:00",
+  "snapshot_id": 533,
+  "snapshot_fetched_at": "2026-07-18T03:25:25.086621+00:00",
   "asset_name": "AVE Santa Clara",
   "unit_count": 7,
   "units": [
@@ -59,7 +59,7 @@
       "area": 1044,
       "price": 5911,
       "display_price": "$5,911.00",
-      "available_on": "2026-07-17",
+      "available_on": "2026-07-18",
       "display_available_on": "Available Now",
       "specials_description": null,
       "bed_bath_label": "2 Bed / 2 Bath",
@@ -114,7 +114,7 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 532
+      "to_snapshot_id": 533
     },
     "has_changes": true,
     "baseline": false,
@@ -122,10 +122,19 @@
       "new": 42,
       "removed": 42,
       "price": 7,
-      "available": 9,
+      "available": 10,
       "special": 0
     },
     "events": [
+      {
+        "type": "AVAILABLE",
+        "summary": "APT 661 | B3 | Floor 6 (2 Bed / 2 Bath) \u2014 move-in / availability Available Now \u2192 Available Now",
+        "from_snapshot_id": 532,
+        "to_snapshot_id": 533,
+        "from_snapshot_fetched_at": "2026-07-17T23:04:05.964204+00:00",
+        "to_snapshot_fetched_at": "2026-07-18T03:25:25.086621+00:00",
+        "snapshot_fetched_at": "2026-07-18T03:25:25.086621+00:00"
+      },
       {
         "type": "AVAILABLE",
         "summary": "APT 661 | B3 | Floor 6 (2 Bed / 2 Bath) \u2014 move-in / availability Available Now \u2192 Available Now",
@@ -1027,6 +1036,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 532
+    "snapshot_count": 533
   }
 }
