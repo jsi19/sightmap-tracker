@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-22T23:14:10.143658+00:00",
-  "snapshot_id": 575,
-  "snapshot_fetched_at": "2026-07-22T23:14:09.974182+00:00",
+  "generated_at": "2026-07-23T03:38:48.133767+00:00",
+  "snapshot_id": 576,
+  "snapshot_fetched_at": "2026-07-23T03:38:47.591127+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 6,
+  "unit_count": 7,
   "units": [
     {
       "sightmap_unit_id": "9638608",
@@ -36,6 +36,36 @@
       "label": "APT 766 | A5 | Floor 7 (1 Bed / 1 Bath)"
     },
     {
+      "sightmap_unit_id": "9638490",
+      "floor_label": "Floor 6",
+      "unit_number": "609",
+      "display_unit_number": "APT 609",
+      "floor_plan": "A5",
+      "area": 649,
+      "price": 3797,
+      "display_price": "$3,797.00",
+      "available_on": "2026-08-11",
+      "display_available_on": "Available Aug 11th",
+      "specials_description": null,
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 609 | A5 | Floor 6 (1 Bed / 1 Bath)"
+    },
+    {
+      "sightmap_unit_id": "9638531",
+      "floor_label": "Floor 6",
+      "unit_number": "661",
+      "display_unit_number": "APT 661",
+      "floor_plan": "B3",
+      "area": 1044,
+      "price": 5911,
+      "display_price": "$5,911.00",
+      "available_on": "2026-07-23",
+      "display_available_on": "Available Now",
+      "specials_description": null,
+      "bed_bath_label": "2 Bed / 2 Bath",
+      "label": "APT 661 | B3 | Floor 6 (2 Bed / 2 Bath)"
+    },
+    {
       "sightmap_unit_id": "9638539",
       "floor_label": "Floor 6",
       "unit_number": "670",
@@ -49,21 +79,6 @@
       "specials_description": null,
       "bed_bath_label": "1 Bed / 1 Bath",
       "label": "APT 670 | A5 | Floor 6 (1 Bed / 1 Bath)"
-    },
-    {
-      "sightmap_unit_id": "9638477",
-      "floor_label": "Floor 5",
-      "unit_number": "569",
-      "display_unit_number": "APT 569",
-      "floor_plan": "A5",
-      "area": 649,
-      "price": 3797,
-      "display_price": "$3,797.00",
-      "available_on": "2026-09-01",
-      "display_available_on": "Available Sep 1st",
-      "specials_description": null,
-      "bed_bath_label": "1 Bed / 1 Bath",
-      "label": "APT 569 | A5 | Floor 5 (1 Bed / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638480",
@@ -99,18 +114,45 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 575
+      "to_snapshot_id": 576
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
-      "new": 47,
-      "removed": 48,
+      "new": 49,
+      "removed": 49,
       "price": 7,
       "available": 12,
       "special": 0
     },
     "events": [
+      {
+        "type": "NEW",
+        "summary": "APT 609 | A5 | Floor 6 (1 Bed / 1 Bath) \u2014 newly listed ($3,797.00; Available Aug 11th)",
+        "from_snapshot_id": 575,
+        "to_snapshot_id": 576,
+        "from_snapshot_fetched_at": "2026-07-22T23:14:09.974182+00:00",
+        "to_snapshot_fetched_at": "2026-07-23T03:38:47.591127+00:00",
+        "snapshot_fetched_at": "2026-07-23T03:38:47.591127+00:00"
+      },
+      {
+        "type": "NEW",
+        "summary": "APT 661 | B3 | Floor 6 (2 Bed / 2 Bath) \u2014 newly listed ($5,911.00; Available Now)",
+        "from_snapshot_id": 575,
+        "to_snapshot_id": 576,
+        "from_snapshot_fetched_at": "2026-07-22T23:14:09.974182+00:00",
+        "to_snapshot_fetched_at": "2026-07-23T03:38:47.591127+00:00",
+        "snapshot_fetched_at": "2026-07-23T03:38:47.591127+00:00"
+      },
+      {
+        "type": "REMOVED",
+        "summary": "APT 569 | A5 | Floor 5 (1 Bed / 1 Bath) \u2014 no longer listed ($3,797.00)",
+        "from_snapshot_id": 575,
+        "to_snapshot_id": 576,
+        "from_snapshot_fetched_at": "2026-07-22T23:14:09.974182+00:00",
+        "to_snapshot_fetched_at": "2026-07-23T03:38:47.591127+00:00",
+        "snapshot_fetched_at": "2026-07-23T03:38:47.591127+00:00"
+      },
       {
         "type": "NEW",
         "summary": "APT 804 | E1 | Floor 8 (Studio / 1 Bath) \u2014 newly listed ($3,375.00; Available Aug 27th)",
@@ -1138,6 +1180,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 575
+    "snapshot_count": 576
   }
 }
