@@ -1,25 +1,10 @@
 {
-  "generated_at": "2026-07-25T23:07:53.570955+00:00",
-  "snapshot_id": 601,
-  "snapshot_fetched_at": "2026-07-25T23:07:53.396392+00:00",
+  "generated_at": "2026-07-26T03:50:25.531523+00:00",
+  "snapshot_id": 602,
+  "snapshot_fetched_at": "2026-07-26T03:50:25.100301+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 4,
+  "unit_count": 3,
   "units": [
-    {
-      "sightmap_unit_id": "9638547",
-      "floor_label": "Floor 7",
-      "unit_number": "704",
-      "display_unit_number": "APT 704",
-      "floor_plan": "E1",
-      "area": 477,
-      "price": 3295,
-      "display_price": "$3,295.00",
-      "available_on": "2026-08-30",
-      "display_available_on": "Available Aug 30th",
-      "specials_description": null,
-      "bed_bath_label": "Studio / 1 Bath",
-      "label": "APT 704 | E1 | Floor 7 (Studio / 1 Bath)"
-    },
     {
       "sightmap_unit_id": "9638536",
       "floor_label": "Floor 6",
@@ -69,18 +54,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 601
+      "to_snapshot_id": 602
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 51,
-      "removed": 54,
+      "removed": 55,
       "price": 7,
       "available": 13,
       "special": 0
     },
     "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 704 | E1 | Floor 7 (Studio / 1 Bath) \u2014 no longer listed ($3,295.00)",
+        "from_snapshot_id": 601,
+        "to_snapshot_id": 602,
+        "from_snapshot_fetched_at": "2026-07-25T23:07:53.396392+00:00",
+        "to_snapshot_fetched_at": "2026-07-26T03:50:25.100301+00:00",
+        "snapshot_fetched_at": "2026-07-26T03:50:25.100301+00:00"
+      },
       {
         "type": "REMOVED",
         "summary": "APT 661 | B3 | Floor 6 (2 Bed / 2 Bath) \u2014 no longer listed ($5,911.00)",
@@ -1207,6 +1201,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 601
+    "snapshot_count": 602
   }
 }
