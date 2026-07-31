@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-31T10:48:53.523105+00:00",
-  "snapshot_id": 645,
-  "snapshot_fetched_at": "2026-07-31T10:48:53.361481+00:00",
+  "generated_at": "2026-07-31T14:30:41.516157+00:00",
+  "snapshot_id": 646,
+  "snapshot_fetched_at": "2026-07-31T14:30:40.759993+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 2,
+  "unit_count": 3,
   "units": [
     {
       "sightmap_unit_id": "9638539",
@@ -19,6 +19,21 @@
       "specials_description": null,
       "bed_bath_label": "1 Bed / 1 Bath",
       "label": "APT 670 | A5 | Floor 6 (1 Bed / 1 Bath)"
+    },
+    {
+      "sightmap_unit_id": "9638428",
+      "floor_label": "Floor 5",
+      "unit_number": "505",
+      "display_unit_number": "APT 505",
+      "floor_plan": "A6",
+      "area": 706,
+      "price": 4195,
+      "display_price": "$4,195.00",
+      "available_on": "2026-09-05",
+      "display_available_on": "Available Sep 5th",
+      "specials_description": null,
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 505 | A6 | Floor 5 (1 Bed / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638480",
@@ -39,18 +54,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 645
+      "to_snapshot_id": 646
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
-      "new": 52,
+      "new": 53,
       "removed": 57,
       "price": 8,
       "available": 13,
       "special": 0
     },
     "events": [
+      {
+        "type": "NEW",
+        "summary": "APT 505 | A6 | Floor 5 (1 Bed / 1 Bath) \u2014 newly listed ($4,195.00; Available Sep 5th)",
+        "from_snapshot_id": 645,
+        "to_snapshot_id": 646,
+        "from_snapshot_fetched_at": "2026-07-31T10:48:53.361481+00:00",
+        "to_snapshot_fetched_at": "2026-07-31T14:30:40.759993+00:00",
+        "snapshot_fetched_at": "2026-07-31T14:30:40.759993+00:00"
+      },
       {
         "type": "REMOVED",
         "summary": "APT 571 | A5 | Floor 5 (1 Bed / 1 Bath) \u2014 no longer listed ($3,797.00)",
@@ -1222,6 +1246,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 645
+    "snapshot_count": 646
   }
 }
