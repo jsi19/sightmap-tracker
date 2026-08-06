@@ -1,10 +1,25 @@
 {
-  "generated_at": "2026-08-06T10:47:30.058816+00:00",
-  "snapshot_id": 696,
-  "snapshot_fetched_at": "2026-08-06T10:47:29.891318+00:00",
+  "generated_at": "2026-08-06T14:31:16.653101+00:00",
+  "snapshot_id": 697,
+  "snapshot_fetched_at": "2026-08-06T14:31:16.267984+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 1,
+  "unit_count": 2,
   "units": [
+    {
+      "sightmap_unit_id": "9638473",
+      "floor_label": "Floor 5",
+      "unit_number": "565",
+      "display_unit_number": "APT 565",
+      "floor_plan": "A5",
+      "area": 649,
+      "price": 3797,
+      "display_price": "$3,797.00",
+      "available_on": "2026-10-06",
+      "display_available_on": "Available Oct 6th",
+      "specials_description": null,
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 565 | A5 | Floor 5 (1 Bed / 1 Bath)"
+    },
     {
       "sightmap_unit_id": "9638480",
       "floor_label": "Floor 5",
@@ -24,18 +39,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 696
+      "to_snapshot_id": 697
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
-      "new": 55,
+      "new": 56,
       "removed": 61,
       "price": 8,
       "available": 13,
       "special": 0
     },
     "events": [
+      {
+        "type": "NEW",
+        "summary": "APT 565 | A5 | Floor 5 (1 Bed / 1 Bath) \u2014 newly listed ($3,797.00; Available Oct 6th)",
+        "from_snapshot_id": 696,
+        "to_snapshot_id": 697,
+        "from_snapshot_fetched_at": "2026-08-06T10:47:29.891318+00:00",
+        "to_snapshot_fetched_at": "2026-08-06T14:31:16.267984+00:00",
+        "snapshot_fetched_at": "2026-08-06T14:31:16.267984+00:00"
+      },
       {
         "type": "REMOVED",
         "summary": "APT 452 | E1 | Floor 4 (Studio / 1 Bath) \u2014 no longer listed ($3,320.00)",
@@ -1270,6 +1294,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 696
+    "snapshot_count": 697
   }
 }
