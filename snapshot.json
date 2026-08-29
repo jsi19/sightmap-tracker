@@ -1,10 +1,25 @@
 {
-  "generated_at": "2026-08-29T11:00:45.376799+00:00",
-  "snapshot_id": 932,
-  "snapshot_fetched_at": "2026-08-29T11:00:44.548115+00:00",
+  "generated_at": "2026-08-29T16:40:22.402699+00:00",
+  "snapshot_id": 933,
+  "snapshot_fetched_at": "2026-08-29T16:40:21.951692+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 2,
+  "unit_count": 3,
   "units": [
+    {
+      "sightmap_unit_id": "9638624",
+      "floor_label": "Floor 8",
+      "unit_number": "823",
+      "display_unit_number": "APT 823",
+      "floor_plan": "A3",
+      "area": 594,
+      "price": 4135,
+      "display_price": "$4,135.00",
+      "available_on": "2026-10-31",
+      "display_available_on": "Available Oct 31st",
+      "specials_description": null,
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 823 | A3 | Floor 8 (1 Bed / 1 Bath)"
+    },
     {
       "sightmap_unit_id": "9638565",
       "floor_label": "Floor 7",
@@ -39,18 +54,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 932
+      "to_snapshot_id": 933
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
-      "new": 60,
+      "new": 61,
       "removed": 65,
       "price": 8,
       "available": 14,
       "special": 0
     },
     "events": [
+      {
+        "type": "NEW",
+        "summary": "APT 823 | A3 | Floor 8 (1 Bed / 1 Bath) \u2014 newly listed ($4,135.00; Available Oct 31st)",
+        "from_snapshot_id": 932,
+        "to_snapshot_id": 933,
+        "from_snapshot_fetched_at": "2026-08-29T11:00:44.548115+00:00",
+        "to_snapshot_fetched_at": "2026-08-29T16:40:21.951692+00:00",
+        "snapshot_fetched_at": "2026-08-29T16:40:21.951692+00:00"
+      },
       {
         "type": "NEW",
         "summary": "APT 726 | A6 | Floor 7 (1 Bed / 1 Bath) \u2014 newly listed ($4,280.00; Available Oct 7th)",
@@ -1375,6 +1399,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 932
+    "snapshot_count": 933
   }
 }
