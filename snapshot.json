@@ -1,25 +1,10 @@
 {
-  "generated_at": "2026-08-30T00:16:01.392453+00:00",
-  "snapshot_id": 935,
-  "snapshot_fetched_at": "2026-08-30T00:16:01.222124+00:00",
+  "generated_at": "2026-08-30T08:15:39.813254+00:00",
+  "snapshot_id": 936,
+  "snapshot_fetched_at": "2026-08-30T08:15:38.751909+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 3,
+  "unit_count": 2,
   "units": [
-    {
-      "sightmap_unit_id": "9638624",
-      "floor_label": "Floor 8",
-      "unit_number": "823",
-      "display_unit_number": "APT 823",
-      "floor_plan": "A3",
-      "area": 594,
-      "price": 4135,
-      "display_price": "$4,135.00",
-      "available_on": "2026-10-31",
-      "display_available_on": "Available Oct 31st",
-      "specials_description": null,
-      "bed_bath_label": "1 Bed / 1 Bath",
-      "label": "APT 823 | A3 | Floor 8 (1 Bed / 1 Bath)"
-    },
     {
       "sightmap_unit_id": "9638565",
       "floor_label": "Floor 7",
@@ -54,18 +39,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 935
+      "to_snapshot_id": 936
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 61,
-      "removed": 65,
+      "removed": 66,
       "price": 8,
       "available": 14,
       "special": 0
     },
     "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 823 | A3 | Floor 8 (1 Bed / 1 Bath) \u2014 no longer listed ($4,135.00)",
+        "from_snapshot_id": 935,
+        "to_snapshot_id": 936,
+        "from_snapshot_fetched_at": "2026-08-30T00:16:01.222124+00:00",
+        "to_snapshot_fetched_at": "2026-08-30T08:15:38.751909+00:00",
+        "snapshot_fetched_at": "2026-08-30T08:15:38.751909+00:00"
+      },
       {
         "type": "NEW",
         "summary": "APT 823 | A3 | Floor 8 (1 Bed / 1 Bath) \u2014 newly listed ($4,135.00; Available Oct 31st)",
@@ -1399,6 +1393,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 935
+    "snapshot_count": 936
   }
 }
