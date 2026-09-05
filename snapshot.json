@@ -1,41 +1,34 @@
 {
-  "generated_at": "2026-09-05T10:29:47.436149+00:00",
-  "snapshot_id": 965,
-  "snapshot_fetched_at": "2026-09-05T10:29:47.255904+00:00",
+  "generated_at": "2026-09-05T15:07:44.498738+00:00",
+  "snapshot_id": 966,
+  "snapshot_fetched_at": "2026-09-05T15:07:43.845620+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 1,
-  "units": [
-    {
-      "sightmap_unit_id": "9638502",
-      "floor_label": "Floor 6",
-      "unit_number": "623",
-      "display_unit_number": "APT 623",
-      "floor_plan": "A3",
-      "area": 594,
-      "price": 4045,
-      "display_price": "$4,045.00",
-      "available_on": "2026-09-05",
-      "display_available_on": "Available Now",
-      "specials_description": null,
-      "bed_bath_label": "1 Bed / 1 Bath",
-      "label": "APT 623 | A3 | Floor 6 (1 Bed / 1 Bath)"
-    }
-  ],
+  "unit_count": 0,
+  "units": [],
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 965
+      "to_snapshot_id": 966
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 64,
-      "removed": 70,
+      "removed": 71,
       "price": 8,
       "available": 15,
       "special": 0
     },
     "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 623 | A3 | Floor 6 (1 Bed / 1 Bath) \u2014 no longer listed ($4,045.00)",
+        "from_snapshot_id": 965,
+        "to_snapshot_id": 966,
+        "from_snapshot_fetched_at": "2026-09-05T10:29:47.255904+00:00",
+        "to_snapshot_fetched_at": "2026-09-05T15:07:43.845620+00:00",
+        "snapshot_fetched_at": "2026-09-05T15:07:43.845620+00:00"
+      },
       {
         "type": "AVAILABLE",
         "summary": "APT 623 | A3 | Floor 6 (1 Bed / 1 Bath) \u2014 move-in / availability Available Now \u2192 Available Now",
@@ -1450,6 +1443,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 965
+    "snapshot_count": 966
   }
 }
