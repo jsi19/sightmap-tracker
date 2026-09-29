@@ -1,10 +1,25 @@
 {
-  "generated_at": "2026-09-28T20:31:06.841272+00:00",
-  "snapshot_id": 1075,
-  "snapshot_fetched_at": "2026-09-28T20:31:06.661652+00:00",
+  "generated_at": "2026-09-29T01:52:49.551894+00:00",
+  "snapshot_id": 1076,
+  "snapshot_fetched_at": "2026-09-29T01:52:49.039121+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 2,
+  "unit_count": 3,
   "units": [
+    {
+      "sightmap_unit_id": "9638537",
+      "floor_label": "Floor 6",
+      "unit_number": "668",
+      "display_unit_number": "APT 668",
+      "floor_plan": "A5",
+      "area": 649,
+      "price": 3822,
+      "display_price": "$3,822.00",
+      "available_on": "2026-11-01",
+      "display_available_on": "Available Nov 1st",
+      "specials_description": null,
+      "bed_bath_label": "1 Bed / 1 Bath",
+      "label": "APT 668 | A5 | Floor 6 (1 Bed / 1 Bath)"
+    },
     {
       "sightmap_unit_id": "9638440",
       "floor_label": "Floor 5",
@@ -39,18 +54,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 1075
+      "to_snapshot_id": 1076
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
-      "new": 68,
+      "new": 69,
       "removed": 73,
       "price": 8,
       "available": 16,
       "special": 0
     },
     "events": [
+      {
+        "type": "NEW",
+        "summary": "APT 668 | A5 | Floor 6 (1 Bed / 1 Bath) \u2014 newly listed ($3,822.00; Available Nov 1st)",
+        "from_snapshot_id": 1075,
+        "to_snapshot_id": 1076,
+        "from_snapshot_fetched_at": "2026-09-28T20:31:06.661652+00:00",
+        "to_snapshot_fetched_at": "2026-09-29T01:52:49.039121+00:00",
+        "snapshot_fetched_at": "2026-09-29T01:52:49.039121+00:00"
+      },
       {
         "type": "AVAILABLE",
         "summary": "APT 545 | A7 | Floor 5 (1 Bed / 1 Bath) \u2014 move-in / availability Available Oct 29th \u2192 Available Nov 5th",
@@ -1537,6 +1561,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 1075
+    "snapshot_count": 1076
   }
 }
