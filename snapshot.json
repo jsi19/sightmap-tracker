@@ -1,25 +1,10 @@
 {
-  "generated_at": "2026-10-13T06:42:36.947516+00:00",
-  "snapshot_id": 1129,
-  "snapshot_fetched_at": "2026-10-13T06:42:36.835315+00:00",
+  "generated_at": "2026-10-13T15:53:59.764183+00:00",
+  "snapshot_id": 1130,
+  "snapshot_fetched_at": "2026-10-13T15:53:59.122662+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 3,
+  "unit_count": 2,
   "units": [
-    {
-      "sightmap_unit_id": "9638527",
-      "floor_label": "Floor 6",
-      "unit_number": "656",
-      "display_unit_number": "APT 656",
-      "floor_plan": "E1",
-      "area": 477,
-      "price": 3310,
-      "display_price": "$3,310.00",
-      "available_on": "2026-10-27",
-      "display_available_on": "Available Oct 27th",
-      "specials_description": null,
-      "bed_bath_label": "Studio / 1 Bath",
-      "label": "APT 656 | E1 | Floor 6 (Studio / 1 Bath)"
-    },
     {
       "sightmap_unit_id": "9638440",
       "floor_label": "Floor 5",
@@ -54,18 +39,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 1129
+      "to_snapshot_id": 1130
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 72,
-      "removed": 76,
+      "removed": 77,
       "price": 8,
       "available": 19,
       "special": 0
     },
     "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 656 | E1 | Floor 6 (Studio / 1 Bath) \u2014 no longer listed ($3,310.00)",
+        "from_snapshot_id": 1129,
+        "to_snapshot_id": 1130,
+        "from_snapshot_fetched_at": "2026-10-13T06:42:36.835315+00:00",
+        "to_snapshot_fetched_at": "2026-10-13T15:53:59.122662+00:00",
+        "snapshot_fetched_at": "2026-10-13T15:53:59.122662+00:00"
+      },
       {
         "type": "NEW",
         "summary": "APT 423 | A3 | Floor 4 (1 Bed / 1 Bath) \u2014 newly listed ($3,855.00; Available Nov 22nd)",
@@ -1642,6 +1636,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 1129
+    "snapshot_count": 1130
   }
 }
