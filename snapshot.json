@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-21T23:14:13.147839+00:00",
-  "snapshot_id": 1169,
-  "snapshot_fetched_at": "2026-10-21T23:14:12.953235+00:00",
+  "generated_at": "2026-10-22T04:35:13.123703+00:00",
+  "snapshot_id": 1170,
+  "snapshot_fetched_at": "2026-10-22T04:35:12.169434+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 5,
+  "unit_count": 4,
   "units": [
     {
       "sightmap_unit_id": "9638518",
@@ -19,21 +19,6 @@
       "specials_description": null,
       "bed_bath_label": "1 Bed / 1 Bath",
       "label": "APT 643 | A3 | Floor 6 (1 Bed / 1 Bath)"
-    },
-    {
-      "sightmap_unit_id": "9638440",
-      "floor_label": "Floor 5",
-      "unit_number": "519",
-      "display_unit_number": "APT 519",
-      "floor_plan": "A5",
-      "area": 649,
-      "price": 3972,
-      "display_price": "$3,972.00",
-      "available_on": "2026-11-16",
-      "display_available_on": "Available Nov 16th",
-      "specials_description": null,
-      "bed_bath_label": "1 Bed / 1 Bath",
-      "label": "APT 519 | A5 | Floor 5 (1 Bed / 1 Bath)"
     },
     {
       "sightmap_unit_id": "9638377",
@@ -84,18 +69,27 @@
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 1169
+      "to_snapshot_id": 1170
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 78,
-      "removed": 80,
+      "removed": 81,
       "price": 8,
       "available": 20,
       "special": 0
     },
     "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 519 | A5 | Floor 5 (1 Bed / 1 Bath) \u2014 no longer listed ($3,972.00)",
+        "from_snapshot_id": 1169,
+        "to_snapshot_id": 1170,
+        "from_snapshot_fetched_at": "2026-10-21T23:14:12.953235+00:00",
+        "to_snapshot_fetched_at": "2026-10-22T04:35:12.169434+00:00",
+        "snapshot_fetched_at": "2026-10-22T04:35:12.169434+00:00"
+      },
       {
         "type": "NEW",
         "summary": "APT 643 | A3 | Floor 6 (1 Bed / 1 Bath) \u2014 newly listed ($3,620.00; Available Nov 26th)",
@@ -1771,6 +1765,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 1169
+    "snapshot_count": 1170
   }
 }
