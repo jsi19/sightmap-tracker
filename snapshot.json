@@ -1,41 +1,34 @@
 {
-  "generated_at": "2026-10-27T04:55:53.209002+00:00",
-  "snapshot_id": 1193,
-  "snapshot_fetched_at": "2026-10-27T04:55:52.786871+00:00",
+  "generated_at": "2026-10-27T12:01:44.660474+00:00",
+  "snapshot_id": 1194,
+  "snapshot_fetched_at": "2026-10-27T12:01:43.892152+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 1,
-  "units": [
-    {
-      "sightmap_unit_id": "9638377",
-      "floor_label": "Floor 4",
-      "unit_number": "406",
-      "display_unit_number": "APT 406",
-      "floor_plan": "E1",
-      "area": 477,
-      "price": 3495,
-      "display_price": "$3,495.00",
-      "available_on": "2026-11-06",
-      "display_available_on": "Available Nov 6th",
-      "specials_description": null,
-      "bed_bath_label": "Studio / 1 Bath",
-      "label": "APT 406 | E1 | Floor 4 (Studio / 1 Bath)"
-    }
-  ],
+  "unit_count": 0,
+  "units": [],
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 1193
+      "to_snapshot_id": 1194
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 79,
-      "removed": 85,
+      "removed": 86,
       "price": 8,
       "available": 20,
       "special": 0
     },
     "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 406 | E1 | Floor 4 (Studio / 1 Bath) \u2014 no longer listed ($3,495.00)",
+        "from_snapshot_id": 1193,
+        "to_snapshot_id": 1194,
+        "from_snapshot_fetched_at": "2026-10-27T04:55:52.786871+00:00",
+        "to_snapshot_fetched_at": "2026-10-27T12:01:43.892152+00:00",
+        "snapshot_fetched_at": "2026-10-27T12:01:43.892152+00:00"
+      },
       {
         "type": "REMOVED",
         "summary": "APT 423 | A3 | Floor 4 (1 Bed / 1 Bath) \u2014 no longer listed ($3,855.00)",
@@ -1765,6 +1758,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 1193
+    "snapshot_count": 1194
   }
 }
