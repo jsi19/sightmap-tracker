@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-05T12:12:49.401196+00:00",
-  "snapshot_id": 1227,
-  "snapshot_fetched_at": "2026-11-05T12:12:49.236494+00:00",
+  "generated_at": "2026-11-05T21:03:25.834760+00:00",
+  "snapshot_id": 1228,
+  "snapshot_fetched_at": "2026-11-05T21:03:25.334988+00:00",
   "asset_name": "AVE Santa Clara",
-  "unit_count": 2,
+  "unit_count": 1,
   "units": [
     {
       "sightmap_unit_id": "9638437",
@@ -19,38 +19,32 @@
       "specials_description": null,
       "bed_bath_label": "1 Bed / 1 Bath",
       "label": "APT 516 | A6 | Floor 5 (1 Bed / 1 Bath)"
-    },
-    {
-      "sightmap_unit_id": "9638364",
-      "floor_label": "Floor 3",
-      "unit_number": "363",
-      "display_unit_number": "APT 363",
-      "floor_plan": "E1",
-      "area": 477,
-      "price": 3275,
-      "display_price": "$3,275.00",
-      "available_on": "2026-12-17",
-      "display_available_on": "Available Dec 17th",
-      "specials_description": null,
-      "bed_bath_label": "Studio / 1 Bath",
-      "label": "APT 363 | E1 | Floor 3 (Studio / 1 Bath)"
     }
   ],
   "changes": {
     "compare": {
       "from_snapshot_id": 1,
-      "to_snapshot_id": 1227
+      "to_snapshot_id": 1228
     },
     "has_changes": true,
     "baseline": false,
     "counts": {
       "new": 82,
-      "removed": 87,
+      "removed": 88,
       "price": 8,
       "available": 20,
       "special": 0
     },
     "events": [
+      {
+        "type": "REMOVED",
+        "summary": "APT 363 | E1 | Floor 3 (Studio / 1 Bath) \u2014 no longer listed ($3,275.00)",
+        "from_snapshot_id": 1227,
+        "to_snapshot_id": 1228,
+        "from_snapshot_fetched_at": "2026-11-05T12:12:49.236494+00:00",
+        "to_snapshot_fetched_at": "2026-11-05T21:03:25.334988+00:00",
+        "snapshot_fetched_at": "2026-11-05T21:03:25.334988+00:00"
+      },
       {
         "type": "REMOVED",
         "summary": "APT 672 | A5 | Floor 6 (1 Bed / 1 Bath) \u2014 no longer listed ($4,022.00)",
@@ -1825,6 +1819,6 @@
         "snapshot_fetched_at": "2026-05-04T20:02:34.059395+00:00"
       }
     ],
-    "snapshot_count": 1227
+    "snapshot_count": 1228
   }
 }
